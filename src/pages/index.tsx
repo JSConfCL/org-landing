@@ -49,23 +49,23 @@ export default function Home() {
         <div className='absolute w-full h-[calc(100vh-10vh)]' style={{top: '10vh'}}>
           <Map color={theme === THEMES.light ? jsclBlack : jsclYellow}/>
         </div>
-
-        <div className='absolute bg-jscl-yellow dark:bg-jscl-black bg-opacity-50 dark:bg-opacity-10 h-full w-full' />
-        <main className="absolute text-black h-screen flex flex-col justify-between items-center font-montserrat  dark:text-jscl-yellow bg-opacity-10 w-full">
-          <div className="w-5/6 m-2 py-4 flex justify-between ">
+        <div className='absolute bg-jscl-yellow dark:bg-jscl-black bg-opacity-50 dark:bg-opacity-10 w-full h-full flex flex-col justify-between'>
+          <header className="w-11/12 mx-auto p-4 px-0 flex justify-between text-black dark:text-jscl-yellow">
             <div className="font-noto">JavaScript<span className='font-thin'>Chile</span></div>
             <div className="font-noto">
               {THEMES.light === theme ? (<button onClick={() => handleTheme(THEMES.dark as Theme)}><Moon /></button>) : null}
               {THEMES.dark === theme ? (<button onClick={() => handleTheme(THEMES.light as Theme)}><Sun /></button>) : null}
             </div>
-          </div>
-          <div>
-            <h1 className="text-6xl font-noto font-bold lg:text-9xl">
-              JavaScript
-              <div className="font-thin lg:inline">Chile</div>
-            </h1>
-          </div>
-          <div className="border-t-2 border-jscl-black w-5/6 m-2 py-4 flex justify-between items-center font-koulen flex-col lg:flex-row gap-4 dark:border-jscl-yellow">
+          </header>
+          <main className="w-11/12 mx-auto px-8 text-black text-center font-montserrat  dark:text-jscl-yellow bg-opacity-10">
+            <div>
+              <h1 className="text-6xl font-noto font-bold lg:text-9xl">
+                JavaScript
+                <div className="font-thin lg:inline">Chile</div>
+              </h1>
+            </div>
+          </main>
+          <footer className="w-11/12 mx-auto p-4 px-0 flex justify-between items-center font-koulen flex-col lg:flex-row gap-4 dark:border-jscl-yellow bottom-1 border-t-2 border-jscl-black text-black dark:text-jscl-yellow font-montserrat">
             <div className="flex gap-4">
               <a target="_blank" href="https://www.linkedin.com/company/javascript-chile/"><Linkedin /></a>
               <a target="_blank" href="https://twitter.com/javascriptChile"><Twitter /></a>
@@ -74,8 +74,8 @@ export default function Home() {
             <div className="flex gap-4 flex-col lg:flex-row text-center lg:gap-8">
               {footer.map(link => (<a key={link.id} href={link.url}>{link.name}</a>))}
             </div>
-          </div>
-        </main>
+          </footer>
+        </div>
       </div>
     </>
   )
