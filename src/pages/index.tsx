@@ -6,7 +6,7 @@ import {
   Sun,
   Twitter,
 } from "react-feather";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import Map from "../components/Map";
 import { seo, footer } from "../utils/data";
@@ -34,15 +34,21 @@ export default function Home({ communityEvents }: { communityEvents: CommunityEv
     localStorage.theme = theme;
   }
 
-  const thisWeekEvents = communityEvents
-    .filter(communityEvent => currentWeek(communityEvent.startDate))
-    .sort((a, b) => sortByDateAsc(a.startDate, b.startDate))
-  const comingEvents = communityEvents
-    .filter(communityEvent => afterCurrentWeek(communityEvent.startDate))
-    .sort((a, b) => sortByDateDesc(a.startDate, b.startDate))
-  const pastEvents = communityEvents
-    .filter(communityEvent => beforeCurrentWeek(communityEvent.startDate))
-    .sort((a, b) => sortByDateDesc(a.startDate, b.startDate))
+  const thisWeekEvents = useMemo(() => {
+    return communityEvents
+      .filter(communityEvent => currentWeek(communityEvent.startDate))
+      .sort((a, b) => sortByDateAsc(a.startDate, b.startDate))
+  }, [communityEvents]);
+  const comingEvents = useMemo(() => {
+    return communityEvents
+      .filter(communityEvent => afterCurrentWeek(communityEvent.startDate))
+      .sort((a, b) => sortByDateDesc(a.startDate, b.startDate))
+  }, [communityEvents]);
+  const pastEvents = useMemo(() => {
+    return communityEvents
+      .filter(communityEvent => beforeCurrentWeek(communityEvent.startDate))
+      .sort((a, b) => sortByDateDesc(a.startDate, b.startDate))
+  }, [communityEvents]);
 
   return (
     <>
