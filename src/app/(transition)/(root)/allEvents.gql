@@ -1,0 +1,27 @@
+query allEvents {
+  allEventInstance {
+    _id
+    title
+    startDate, 
+    endDate, 
+    url, 
+    bgColor,
+    mergedTitle,
+    image {
+      asset {
+        _id
+        assetId
+      }
+    }
+    eventType {
+      title,
+      bgColor,
+     	image {
+      	asset {
+        	_id
+        	assetId
+      	}
+    	}
+    }
+  }
+}
