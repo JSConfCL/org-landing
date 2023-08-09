@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc",
+    "lint": "npx eslint --cache src",
+    "lint:fix": "npx eslint --cache src --fix",
+    "prettier": "prettier ./src --cache --check",
+    "prettier:fix": "prettier ./src --cache --write"
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
@@ -15,8 +19,6 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "date-fns": "^2.30.0",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
     "next": "13.4.13",
     "next-sanity": "^5.2.6",
     "postcss": "^8.4.27",
@@ -28,6 +30,14 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.5.0",
-    "eslint-plugin-next-on-pages": "^1.5.0"
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.47.0",
+    "eslint-config-next": "13.4.13",
+    "eslint-plugin-next-on-pages": "^1.5.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0"
   }
 }
