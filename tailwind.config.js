@@ -11,8 +11,8 @@ module.exports = {
         'jscl-black': '#333',
       },
       fontFamily: {
-        'noto': ["Noto Sans JP"],
-        'montserrat': ["Montserrat"],
+        'noto': ["var(--font-noto)"],
+        'montserrat': ["var(--font-montserrat)"],
       },
     },
   },
