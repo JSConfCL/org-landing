@@ -1,5 +1,5 @@
 {
-  "name": "landing",
+  "name": "landing_jschile_ong",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,22 +10,20 @@
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.32",
-    "@types/react-dom": "18.0.11",
+    "@types/node": "20.4.10",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
     "date-fns": "^2.30.0",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
-    "next": "13.2.4",
-    "next-sanity": "^4.3.3",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
+    "next-sanity": "^5.2.6",
+    "postcss": "^8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
-    "typescript": "5.0.3"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   }
 }
