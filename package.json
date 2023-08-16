@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "generate": "graphql-codegen",
+    "prestart": "npm run generate",
+    "predev": "npm run generate",
     "typecheck": "tsc",
     "lint": "npx eslint --cache src",
     "lint:fix": "npx eslint --cache src --fix",
@@ -24,6 +27,8 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "easymde": "^2.18.0",
+    "graphql": "^16.7.1",
+    "graphql-request": "^6.1.0",
     "next": "13.4.13",
     "next-sanity": "^5.2.6",
     "postcss": "^8.4.27",
@@ -32,19 +37,27 @@
     "react-feather": "^2.0.10",
     "sanity": "^3.15.1",
     "sanity-plugin-markdown": "^4.1.0",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.5.0",
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/client-preset": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-eslint/eslint-plugin": "^3.19.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
+    "encoding": "^0.1.13",
     "eslint": "^8.47.0",
     "eslint-config-next": "13.4.13",
     "eslint-plugin-next-on-pages": "^1.5.0",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "5.1.6"
   }
 }
