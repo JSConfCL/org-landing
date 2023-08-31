@@ -1,14 +1,12 @@
 interface LogoProps {
   color?: string;
-  size?: string;
-  bgColor?: string;
   width?: string;
   height?: string;
 }
 
-export default function Map({ color = "#fff", bgColor, width, height }: LogoProps) {
-  let finalWidth = width ? width : "100vw"
-  let finalHeight = height ? height : "80vh"
+export default function Map({ color = "#fff", width, height }: LogoProps) {
+  const finalWidth = width ? width : "100vw"
+  const finalHeight = height ? height : "80vh"
 
   return (
      <svg
