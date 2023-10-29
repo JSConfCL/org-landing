@@ -35,6 +35,8 @@ export type Block = {
 export type BooleanFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is not equal to the given input. */
   neq: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -74,6 +76,8 @@ export type DateFilter = {
   gt: InputMaybe<Scalars['Date']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Date']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Date']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -89,6 +93,8 @@ export type DatetimeFilter = {
   gt: InputMaybe<Scalars['DateTime']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['DateTime']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['DateTime']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -127,6 +133,56 @@ export type DocumentSorting = {
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
+};
+
+export type Donor = Document & {
+  __typename?: 'Donor';
+  /** Date the document was created */
+  _createdAt: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id: Maybe<Scalars['ID']['output']>;
+  _key: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  discordUsername: Maybe<Scalars['String']['output']>;
+  githubUsername: Maybe<Scalars['String']['output']>;
+  /** El nombre q se usará en el sitio público para identificar al donante */
+  name: Maybe<Scalars['String']['output']>;
+  profileImage: Maybe<Image>;
+  status: Maybe<Status>;
+};
+
+export type DonorFilter = {
+  /** Apply filters on document level */
+  _: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt: InputMaybe<DatetimeFilter>;
+  _id: InputMaybe<IdFilter>;
+  _key: InputMaybe<StringFilter>;
+  _rev: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  _updatedAt: InputMaybe<DatetimeFilter>;
+  discordUsername: InputMaybe<StringFilter>;
+  githubUsername: InputMaybe<StringFilter>;
+  name: InputMaybe<StringFilter>;
+  profileImage: InputMaybe<ImageFilter>;
+  status: InputMaybe<StatusFilter>;
+};
+
+export type DonorSorting = {
+  _createdAt: InputMaybe<SortOrder>;
+  _id: InputMaybe<SortOrder>;
+  _key: InputMaybe<SortOrder>;
+  _rev: InputMaybe<SortOrder>;
+  _type: InputMaybe<SortOrder>;
+  _updatedAt: InputMaybe<SortOrder>;
+  discordUsername: InputMaybe<SortOrder>;
+  githubUsername: InputMaybe<SortOrder>;
+  name: InputMaybe<SortOrder>;
+  profileImage: InputMaybe<ImageSorting>;
 };
 
 export type EventInstance = Document & {
@@ -256,6 +312,8 @@ export type FloatFilter = {
   gt: InputMaybe<Scalars['Float']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Float']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Float']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -331,6 +389,8 @@ export type IntFilter = {
   gt: InputMaybe<Scalars['Int']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Int']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Int']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -342,19 +402,28 @@ export type IntFilter = {
 export type RootQuery = {
   __typename?: 'RootQuery';
   Document: Maybe<Document>;
+  Donor: Maybe<Donor>;
   EventInstance: Maybe<EventInstance>;
   EventType: Maybe<EventType>;
   SanityFileAsset: Maybe<SanityFileAsset>;
   SanityImageAsset: Maybe<SanityImageAsset>;
+  Status: Maybe<Status>;
   allDocument: Array<Document>;
+  allDonor: Array<Donor>;
   allEventInstance: Array<EventInstance>;
   allEventType: Array<EventType>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
+  allStatus: Array<Status>;
 };
 
 
 export type RootQueryDocumentArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type RootQueryDonorArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -379,11 +448,24 @@ export type RootQuerySanityImageAssetArgs = {
 };
 
 
+export type RootQueryStatusArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type RootQueryAllDocumentArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<Array<DocumentSorting>>;
   where: InputMaybe<DocumentFilter>;
+};
+
+
+export type RootQueryAllDonorArgs = {
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<Array<DonorSorting>>;
+  where: InputMaybe<DonorFilter>;
 };
 
 
@@ -416,6 +498,14 @@ export type RootQueryAllSanityImageAssetArgs = {
   offset: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<Array<SanityImageAssetSorting>>;
   where: InputMaybe<SanityImageAssetFilter>;
+};
+
+
+export type RootQueryAllStatusArgs = {
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<Array<StatusSorting>>;
+  where: InputMaybe<StatusFilter>;
 };
 
 export type SanityAssetSourceData = {
@@ -827,10 +917,54 @@ export type Span = {
   text: Maybe<Scalars['String']['output']>;
 };
 
+export type Status = Document & {
+  __typename?: 'Status';
+  /** Date the document was created */
+  _createdAt: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id: Maybe<Scalars['ID']['output']>;
+  _key: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  key: Maybe<Slug>;
+  /** Descriptive name of the status */
+  statusName: Maybe<Scalars['String']['output']>;
+};
+
+export type StatusFilter = {
+  /** Apply filters on document level */
+  _: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt: InputMaybe<DatetimeFilter>;
+  _id: InputMaybe<IdFilter>;
+  _key: InputMaybe<StringFilter>;
+  _rev: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  _updatedAt: InputMaybe<DatetimeFilter>;
+  key: InputMaybe<SlugFilter>;
+  statusName: InputMaybe<StringFilter>;
+};
+
+export type StatusSorting = {
+  _createdAt: InputMaybe<SortOrder>;
+  _id: InputMaybe<SortOrder>;
+  _key: InputMaybe<SortOrder>;
+  _rev: InputMaybe<SortOrder>;
+  _type: InputMaybe<SortOrder>;
+  _updatedAt: InputMaybe<SortOrder>;
+  key: InputMaybe<SlugSorting>;
+  statusName: InputMaybe<SortOrder>;
+};
+
 export type StringFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['String']['input']>;
   in: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value matches the given word/words. */
   matches: InputMaybe<Scalars['String']['input']>;
   /** Checks if the value is not equal to the given input. */
