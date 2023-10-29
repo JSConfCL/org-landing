@@ -11,12 +11,18 @@ export default {
         "El nombre q se usará en el sitio público para identificar al donante",
       name: "name",
       type: "string",
+      validation: (Rule) => {
+        return Rule.required();
+      },
     },
     {
       title: "Donor Status",
       name: "status",
       type: "reference",
       to: [{ type: "status" }],
+      validation: (Rule) => {
+        return Rule.required();
+      },
     },
     {
       name: "discordUsername",
@@ -35,6 +41,9 @@ export default {
       options: {
         metadata: ["blurhash", "lqip", "palette"],
         hotspot: true,
+      },
+      validation: (Rule) => {
+        return Rule.required();
       },
     },
   ],
