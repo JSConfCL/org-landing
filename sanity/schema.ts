@@ -1,9 +1,10 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import eventInstance from "./schemas/eventInstance"
-import eventType from './schemas/eventType'
+import status from "./schemas/status";
+import donor from "./schemas/donor";
+import eventInstance from "./schemas/eventInstance";
+import eventType from "./schemas/eventType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-    types: [eventType, eventInstance]
-  };
-  
+  types: [eventType, eventInstance, status, donor],
+};
