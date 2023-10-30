@@ -43,6 +43,7 @@ export const seo = {
 };
 
 export const footer = [
+  { id: 0, name: "Donaciones y Sponsors", url: "https://donacion.jschile.org/"},
   { id: 1, name: "CÓDIGO DE CONDUCTA", url: "https://github.com/jsconfcl/code_of_conduct"},
   { id: 2, name: "CONTACTO@JSCHILE.ORG", url: "mailto:contacto@jschile.org"},
   { id: 3, name: "MIT Licencse  - JavaScript Chile", url: "https://github.com/jsconfcl/org-landing"},
