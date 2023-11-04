@@ -29,6 +29,7 @@
     "easymde": "^2.18.0",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
+    "groq-cli": "^0.2.1",
     "next": "13.4.13",
     "next-sanity": "^5.2.6",
     "postcss": "^8.4.27",
