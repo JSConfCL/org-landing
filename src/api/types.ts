@@ -198,7 +198,7 @@ export type EventImage = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  eventType: Maybe<EventType>;
+  eventInstance: Maybe<EventInstance>;
   externalId: Maybe<Scalars['String']['output']>;
   externalURL: Maybe<Scalars['String']['output']>;
   image: Maybe<Image>;
@@ -215,7 +215,7 @@ export type EventImageFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
-  eventType: InputMaybe<EventTypeFilter>;
+  eventInstance: InputMaybe<EventInstanceFilter>;
   externalId: InputMaybe<StringFilter>;
   externalURL: InputMaybe<StringFilter>;
   image: InputMaybe<ImageFilter>;
@@ -253,6 +253,8 @@ export type EventInstance = Document & {
   bgColor: Maybe<Scalars['String']['output']>;
   endDate: Maybe<Scalars['Date']['output']>;
   eventType: Maybe<EventType>;
+  /** Habilita este evento para aparecer en la galería de imágenes */
+  galleryEnabled: Maybe<Scalars['Boolean']['output']>;
   image: Maybe<Image>;
   mergedTitle: Maybe<Scalars['Boolean']['output']>;
   startDate: Maybe<Scalars['Date']['output']>;
@@ -272,6 +274,7 @@ export type EventInstanceFilter = {
   bgColor: InputMaybe<StringFilter>;
   endDate: InputMaybe<DateFilter>;
   eventType: InputMaybe<EventTypeFilter>;
+  galleryEnabled: InputMaybe<BooleanFilter>;
   image: InputMaybe<ImageFilter>;
   mergedTitle: InputMaybe<BooleanFilter>;
   startDate: InputMaybe<DateFilter>;
@@ -288,6 +291,7 @@ export type EventInstanceSorting = {
   _updatedAt: InputMaybe<SortOrder>;
   bgColor: InputMaybe<SortOrder>;
   endDate: InputMaybe<SortOrder>;
+  galleryEnabled: InputMaybe<SortOrder>;
   image: InputMaybe<ImageSorting>;
   mergedTitle: InputMaybe<SortOrder>;
   startDate: InputMaybe<SortOrder>;
