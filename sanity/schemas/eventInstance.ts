@@ -10,6 +10,7 @@ export default {
       name: "eventType",
       type: "reference",
       to: [{ type: "eventType" }],
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Merged Title",
@@ -20,11 +21,13 @@ export default {
       name: "title",
       type: "string",
       title: "Title",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "startDate",
       type: "date",
       title: "Start Date",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "endDate",
@@ -35,6 +38,14 @@ export default {
       name: "bgColor",
       type: "string",
       title: "Background Color",
+    },
+    {
+      name: "galleryEnabled",
+      type: "boolean",
+      title: "Habilitado para galería",
+      description:
+        "Habilita este evento para aparecer en la galería de imágenes",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "image",

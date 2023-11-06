@@ -185,6 +185,58 @@ export type DonorSorting = {
   profileImage: InputMaybe<ImageSorting>;
 };
 
+export type EventImage = Document & {
+  __typename?: 'EventImage';
+  /** Date the document was created */
+  _createdAt: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id: Maybe<Scalars['ID']['output']>;
+  _key: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  eventInstance: Maybe<EventInstance>;
+  externalId: Maybe<Scalars['String']['output']>;
+  externalURL: Maybe<Scalars['String']['output']>;
+  image: Maybe<Image>;
+  title: Maybe<Scalars['String']['output']>;
+  url: Maybe<Scalars['String']['output']>;
+};
+
+export type EventImageFilter = {
+  /** Apply filters on document level */
+  _: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt: InputMaybe<DatetimeFilter>;
+  _id: InputMaybe<IdFilter>;
+  _key: InputMaybe<StringFilter>;
+  _rev: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  _updatedAt: InputMaybe<DatetimeFilter>;
+  eventInstance: InputMaybe<EventInstanceFilter>;
+  externalId: InputMaybe<StringFilter>;
+  externalURL: InputMaybe<StringFilter>;
+  image: InputMaybe<ImageFilter>;
+  title: InputMaybe<StringFilter>;
+  url: InputMaybe<StringFilter>;
+};
+
+export type EventImageSorting = {
+  _createdAt: InputMaybe<SortOrder>;
+  _id: InputMaybe<SortOrder>;
+  _key: InputMaybe<SortOrder>;
+  _rev: InputMaybe<SortOrder>;
+  _type: InputMaybe<SortOrder>;
+  _updatedAt: InputMaybe<SortOrder>;
+  externalId: InputMaybe<SortOrder>;
+  externalURL: InputMaybe<SortOrder>;
+  image: InputMaybe<ImageSorting>;
+  title: InputMaybe<SortOrder>;
+  url: InputMaybe<SortOrder>;
+};
+
 export type EventInstance = Document & {
   __typename?: 'EventInstance';
   /** Date the document was created */
@@ -201,6 +253,8 @@ export type EventInstance = Document & {
   bgColor: Maybe<Scalars['String']['output']>;
   endDate: Maybe<Scalars['Date']['output']>;
   eventType: Maybe<EventType>;
+  /** Habilita este evento para aparecer en la galería de imágenes */
+  galleryEnabled: Maybe<Scalars['Boolean']['output']>;
   image: Maybe<Image>;
   mergedTitle: Maybe<Scalars['Boolean']['output']>;
   startDate: Maybe<Scalars['Date']['output']>;
@@ -220,6 +274,7 @@ export type EventInstanceFilter = {
   bgColor: InputMaybe<StringFilter>;
   endDate: InputMaybe<DateFilter>;
   eventType: InputMaybe<EventTypeFilter>;
+  galleryEnabled: InputMaybe<BooleanFilter>;
   image: InputMaybe<ImageFilter>;
   mergedTitle: InputMaybe<BooleanFilter>;
   startDate: InputMaybe<DateFilter>;
@@ -236,6 +291,7 @@ export type EventInstanceSorting = {
   _updatedAt: InputMaybe<SortOrder>;
   bgColor: InputMaybe<SortOrder>;
   endDate: InputMaybe<SortOrder>;
+  galleryEnabled: InputMaybe<SortOrder>;
   image: InputMaybe<ImageSorting>;
   mergedTitle: InputMaybe<SortOrder>;
   startDate: InputMaybe<SortOrder>;
@@ -403,6 +459,7 @@ export type RootQuery = {
   __typename?: 'RootQuery';
   Document: Maybe<Document>;
   Donor: Maybe<Donor>;
+  EventImage: Maybe<EventImage>;
   EventInstance: Maybe<EventInstance>;
   EventType: Maybe<EventType>;
   SanityFileAsset: Maybe<SanityFileAsset>;
@@ -410,6 +467,7 @@ export type RootQuery = {
   Status: Maybe<Status>;
   allDocument: Array<Document>;
   allDonor: Array<Donor>;
+  allEventImage: Array<EventImage>;
   allEventInstance: Array<EventInstance>;
   allEventType: Array<EventType>;
   allSanityFileAsset: Array<SanityFileAsset>;
@@ -424,6 +482,11 @@ export type RootQueryDocumentArgs = {
 
 
 export type RootQueryDonorArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type RootQueryEventImageArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -466,6 +529,14 @@ export type RootQueryAllDonorArgs = {
   offset: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<Array<DonorSorting>>;
   where: InputMaybe<DonorFilter>;
+};
+
+
+export type RootQueryAllEventImageArgs = {
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<Array<EventImageSorting>>;
+  where: InputMaybe<EventImageFilter>;
 };
 
 

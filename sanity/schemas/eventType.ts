@@ -9,6 +9,7 @@ export default {
       name: "title",
       type: "string",
       title: "Title",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "bgColor",
@@ -26,6 +27,7 @@ export default {
           title: "Caption",
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
   ],
 } as SchemaTypeDefinition;

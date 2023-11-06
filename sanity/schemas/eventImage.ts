@@ -10,7 +10,7 @@ export default {
       title: "External ID",
       type: "string",
       validation: (Rule) => {
-        return Rule.required();
+        return Rule.required().unique();
       },
     },
     {
@@ -23,9 +23,9 @@ export default {
     },
     {
       title: "Event Instance",
-      name: "eventType",
+      name: "eventInstance",
       type: "reference",
-      to: [{ type: "eventType" }],
+      to: [{ type: "eventInstance" }],
       validation: (Rule) => {
         return Rule.required();
       },
