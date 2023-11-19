@@ -16,6 +16,9 @@
     "prettier:fix": "prettier ./src --cache --write"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.0.16",
+    "@fontsource-variable/noto-sans-jp": "^5.0.16",
+    "@fontsource/montserrat": "^5.0.15",
     "@portabletext/react": "^3.0.4",
     "@sanity/client": "^6.4.5",
     "@sanity/image-url": "^1.0.2",

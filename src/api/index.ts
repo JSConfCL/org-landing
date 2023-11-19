@@ -7,4 +7,8 @@ const endpoint = `https://${
   process.env.NEXT_PUBLIC_SANITY_DATASET ?? ""
 }/default`;
 
-export const API = getSdk(new GraphQLClient(endpoint));
+export const API = getSdk(
+  new GraphQLClient(endpoint, {
+    fetch,
+  })
+);

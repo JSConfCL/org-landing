@@ -1,24 +1,10 @@
-import classNames from "classnames";
-import { Noto_Sans_JP, Montserrat } from "next/font/google";
 import { cookies } from "next/headers";
 
 import "./globals.css";
 import { Theme, ThemeProvider } from "../components/ThemeMode";
 import { ThemeCookieKey } from "../utils/constants";
-
-const noto = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-noto",
-  display: "swap",
-  weight: ["100", "400"],
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-  weight: ["400", "700"],
-});
+import "@fontsource-variable/montserrat";
+import "@fontsource-variable/noto-sans-jp";
 
 export const metadata = {
   title: "Create Next App",
@@ -40,9 +26,7 @@ export default function RootLayout({
   return (
     <ThemeProvider initialTheme={themeValue}>
       <html lang="es">
-        <body className={classNames(montserrat.variable, noto.variable)}>
-          {children}
-        </body>
+        <body>{children}</body>
       </html>
     </ThemeProvider>
   );

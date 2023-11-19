@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* font-family: 'Montserrat Variable', sans-serif; */
+/* font-family: 'Noto Sans JP Variable', sans-serif; */
+
+:root {
+  --font-noto: "Noto Sans JP Variable", sans-serif;
+  --font-mont: "Montserrat Variable", sans-serif;
+}
+
 body {
   margin: 0;
 }
