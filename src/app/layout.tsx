@@ -47,3 +47,5 @@ export default function RootLayout({
     </ThemeProvider>
   );
 }
+
+export const runtime = "edge";
