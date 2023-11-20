@@ -5,8 +5,8 @@ interface LogoProps {
 }
 
 export default function Map({ color = "#fff", width, height }: LogoProps) {
-  const finalWidth = width ? width : "100vw"
-  const finalHeight = height ? height : "80vh"
+  const finalWidth = width ? width : "100%";
+  const finalHeight = height ? height : "80vh";
 
   return (
      <svg

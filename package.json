@@ -16,6 +16,9 @@
     "prettier:fix": "prettier ./src --cache --write"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.0.16",
+    "@fontsource-variable/noto-sans-jp": "^5.0.16",
+    "@fontsource/montserrat": "^5.0.15",
     "@portabletext/react": "^3.0.4",
     "@sanity/client": "^6.4.5",
     "@sanity/image-url": "^1.0.2",
@@ -30,6 +33,7 @@
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
     "groq-cli": "^0.2.1",
+    "js-cookie": "^3.0.5",
     "next": "13.4.13",
     "next-sanity": "^5.2.6",
     "postcss": "^8.4.27",
@@ -48,6 +52,7 @@
     "@graphql-codegen/typescript-graphql-request": "^5.0.0",
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@graphql-eslint/eslint-plugin": "^3.19.3",
+    "@types/js-cookie": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "encoding": "^0.1.13",
