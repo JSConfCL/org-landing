@@ -65,4 +65,7 @@ export default {
       title: "URL",
     },
   ],
+  initialValue: {
+    galleryEnabled: true,
+  },
 } satisfies SchemaTypeDefinition;

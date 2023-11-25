@@ -39,6 +39,14 @@ export default {
       },
     },
     {
+      name: "galleryEnabled",
+      type: "boolean",
+      title: "Habilitado para galería",
+      description:
+        "Habilita esta imagen para aparecer en la galería de imágenes",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "image",
       type: "image",
       title: "Image",
@@ -69,4 +77,7 @@ export default {
       title: "URL",
     },
   ],
+  initialValue: {
+    galleryEnabled: true,
+  },
 } satisfies SchemaTypeDefinition;
