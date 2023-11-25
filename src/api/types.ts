@@ -201,6 +201,8 @@ export type EventImage = Document & {
   eventInstance: Maybe<EventInstance>;
   externalId: Maybe<Scalars['String']['output']>;
   externalURL: Maybe<Scalars['String']['output']>;
+  /** Habilita esta imagen para aparecer en la galería de imágenes */
+  galleryEnabled: Maybe<Scalars['Boolean']['output']>;
   image: Maybe<Image>;
   title: Maybe<Scalars['String']['output']>;
   url: Maybe<Scalars['String']['output']>;
@@ -218,6 +220,7 @@ export type EventImageFilter = {
   eventInstance: InputMaybe<EventInstanceFilter>;
   externalId: InputMaybe<StringFilter>;
   externalURL: InputMaybe<StringFilter>;
+  galleryEnabled: InputMaybe<BooleanFilter>;
   image: InputMaybe<ImageFilter>;
   title: InputMaybe<StringFilter>;
   url: InputMaybe<StringFilter>;
@@ -232,6 +235,7 @@ export type EventImageSorting = {
   _updatedAt: InputMaybe<SortOrder>;
   externalId: InputMaybe<SortOrder>;
   externalURL: InputMaybe<SortOrder>;
+  galleryEnabled: InputMaybe<SortOrder>;
   image: InputMaybe<ImageSorting>;
   title: InputMaybe<SortOrder>;
   url: InputMaybe<SortOrder>;

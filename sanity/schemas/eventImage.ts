@@ -43,7 +43,7 @@ export default {
       type: "boolean",
       title: "Habilitado para galería",
       description:
-        "Habilita este evento para aparecer en la galería de imágenes",
+        "Habilita esta imagen para aparecer en la galería de imágenes",
       validation: (Rule) => Rule.required(),
     },
     {
