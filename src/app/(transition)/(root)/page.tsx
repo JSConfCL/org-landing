@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function Page() {
   const data = await API.allEvents()
-  const communityEvents = data?.allEventInstance ?? []
+  const communityEvents = data?.allEvent ?? []
 
   return <ClientPage communityEvents={communityEvents} />
 }

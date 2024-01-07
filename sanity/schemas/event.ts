@@ -1,15 +1,15 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 export default {
-  name: "eventInstance",
+  name: "event",
   type: "document",
-  title: "Event Instance",
+  title: "Event",
   fields: [
     {
-      title: "Event Type",
-      name: "eventType",
+      title: "Project",
+      name: "project",
       type: "reference",
-      to: [{ type: "eventType" }],
+      to: [{ type: "project" }],
       validation: (Rule) => Rule.required(),
     },
     {

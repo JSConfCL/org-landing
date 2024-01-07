@@ -1,9 +1,9 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 export default {
-  name: "eventType",
+  name: "project",
   type: "document",
-  title: "Event Type",
+  title: "Project",
   fields: [
     {
       name: "title",

@@ -23,7 +23,7 @@ const jsclBlack = "#333";
 export default function Home({
   communityEvents,
 }: {
-  communityEvents: AllEventsQuery["allEventInstance"] | [];
+  communityEvents: AllEventsQuery["allEvent"] | [];
 }) {
   const { theme, setDarkTheme, setLightTheme } = useTheme();
 

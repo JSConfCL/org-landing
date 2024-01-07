@@ -22,10 +22,10 @@ export default {
       },
     },
     {
-      title: "Event Instance",
-      name: "eventInstance",
+      title: "Event",
+      name: "event",
       type: "reference",
-      to: [{ type: "eventInstance" }],
+      to: [{ type: "event" }],
       validation: (Rule) => {
         return Rule.required();
       },

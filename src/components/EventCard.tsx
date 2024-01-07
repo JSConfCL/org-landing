@@ -4,13 +4,13 @@ import type { AllEventsQuery } from "@/api/types";
 import type { Image } from 'sanity'
 
 interface EventCardProps {
-  event: AllEventsQuery["allEventInstance"][0];
+  event: AllEventsQuery["allEvent"][0];
 }
 
-export default function EventCard({ event: { title, mergedTitle, startDate, endDate, image, bgColor, url, eventType } } : EventCardProps) {
+export default function EventCard({ event: { title, mergedTitle, startDate, endDate, image, bgColor, url, project } } : EventCardProps) {
   const showEnd = startDate !== endDate
-  const showImage = image ?? eventType?.image
-  const showTitle = mergedTitle ? `${eventType?.title ?? ''} | ${title ?? ''}` : title
+  const showImage = image ?? project?.image
+  const showTitle = mergedTitle ? `${project?.title ?? ''} | ${title ?? ''}` : title
 
   const Wrapper = url
     ? ({ children }: { children: JSX.Element }) => <a className={`block h-80`} target="_blank" href={url}>{children}</a>
