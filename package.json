@@ -15,6 +15,9 @@
     "prettier": "prettier ./src --cache --check",
     "prettier:fix": "prettier ./src --cache --write"
   },
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.16",
     "@fontsource-variable/noto-sans-jp": "^5.0.16",

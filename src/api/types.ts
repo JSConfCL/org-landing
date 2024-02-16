@@ -185,6 +185,51 @@ export type DonorSorting = {
   profileImage: InputMaybe<ImageSorting>;
 };
 
+export type Event = Document & {
+  __typename?: 'Event';
+  /** Date the document was created */
+  _createdAt: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id: Maybe<Scalars['ID']['output']>;
+  _key: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  bgColor: Maybe<Scalars['String']['output']>;
+  endDate: Maybe<Scalars['Date']['output']>;
+  /** Habilita este evento para aparecer en la galería de imágenes */
+  galleryEnabled: Maybe<Scalars['Boolean']['output']>;
+  image: Maybe<Image>;
+  mergedTitle: Maybe<Scalars['Boolean']['output']>;
+  project: Maybe<Project>;
+  startDate: Maybe<Scalars['Date']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+  url: Maybe<Scalars['String']['output']>;
+};
+
+export type EventFilter = {
+  /** Apply filters on document level */
+  _: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt: InputMaybe<DatetimeFilter>;
+  _id: InputMaybe<IdFilter>;
+  _key: InputMaybe<StringFilter>;
+  _rev: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  _updatedAt: InputMaybe<DatetimeFilter>;
+  bgColor: InputMaybe<StringFilter>;
+  endDate: InputMaybe<DateFilter>;
+  galleryEnabled: InputMaybe<BooleanFilter>;
+  image: InputMaybe<ImageFilter>;
+  mergedTitle: InputMaybe<BooleanFilter>;
+  project: InputMaybe<ProjectFilter>;
+  startDate: InputMaybe<DateFilter>;
+  title: InputMaybe<StringFilter>;
+  url: InputMaybe<StringFilter>;
+};
+
 export type EventImage = Document & {
   __typename?: 'EventImage';
   /** Date the document was created */
@@ -198,7 +243,7 @@ export type EventImage = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  eventInstance: Maybe<EventInstance>;
+  event: Maybe<Event>;
   externalId: Maybe<Scalars['String']['output']>;
   externalURL: Maybe<Scalars['String']['output']>;
   /** Habilita esta imagen para aparecer en la galería de imágenes */
@@ -217,7 +262,7 @@ export type EventImageFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
-  eventInstance: InputMaybe<EventInstanceFilter>;
+  event: InputMaybe<EventFilter>;
   externalId: InputMaybe<StringFilter>;
   externalURL: InputMaybe<StringFilter>;
   galleryEnabled: InputMaybe<BooleanFilter>;
@@ -241,52 +286,7 @@ export type EventImageSorting = {
   url: InputMaybe<SortOrder>;
 };
 
-export type EventInstance = Document & {
-  __typename?: 'EventInstance';
-  /** Date the document was created */
-  _createdAt: Maybe<Scalars['DateTime']['output']>;
-  /** Document ID */
-  _id: Maybe<Scalars['ID']['output']>;
-  _key: Maybe<Scalars['String']['output']>;
-  /** Current document revision */
-  _rev: Maybe<Scalars['String']['output']>;
-  /** Document type */
-  _type: Maybe<Scalars['String']['output']>;
-  /** Date the document was last modified */
-  _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  bgColor: Maybe<Scalars['String']['output']>;
-  endDate: Maybe<Scalars['Date']['output']>;
-  eventType: Maybe<EventType>;
-  /** Habilita este evento para aparecer en la galería de imágenes */
-  galleryEnabled: Maybe<Scalars['Boolean']['output']>;
-  image: Maybe<Image>;
-  mergedTitle: Maybe<Scalars['Boolean']['output']>;
-  startDate: Maybe<Scalars['Date']['output']>;
-  title: Maybe<Scalars['String']['output']>;
-  url: Maybe<Scalars['String']['output']>;
-};
-
-export type EventInstanceFilter = {
-  /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  bgColor: InputMaybe<StringFilter>;
-  endDate: InputMaybe<DateFilter>;
-  eventType: InputMaybe<EventTypeFilter>;
-  galleryEnabled: InputMaybe<BooleanFilter>;
-  image: InputMaybe<ImageFilter>;
-  mergedTitle: InputMaybe<BooleanFilter>;
-  startDate: InputMaybe<DateFilter>;
-  title: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
-};
-
-export type EventInstanceSorting = {
+export type EventSorting = {
   _createdAt: InputMaybe<SortOrder>;
   _id: InputMaybe<SortOrder>;
   _key: InputMaybe<SortOrder>;
@@ -301,50 +301,6 @@ export type EventInstanceSorting = {
   startDate: InputMaybe<SortOrder>;
   title: InputMaybe<SortOrder>;
   url: InputMaybe<SortOrder>;
-};
-
-export type EventType = Document & {
-  __typename?: 'EventType';
-  /** Date the document was created */
-  _createdAt: Maybe<Scalars['DateTime']['output']>;
-  /** Document ID */
-  _id: Maybe<Scalars['ID']['output']>;
-  _key: Maybe<Scalars['String']['output']>;
-  /** Current document revision */
-  _rev: Maybe<Scalars['String']['output']>;
-  /** Document type */
-  _type: Maybe<Scalars['String']['output']>;
-  /** Date the document was last modified */
-  _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  bgColor: Maybe<Scalars['String']['output']>;
-  image: Maybe<Image>;
-  title: Maybe<Scalars['String']['output']>;
-};
-
-export type EventTypeFilter = {
-  /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  bgColor: InputMaybe<StringFilter>;
-  image: InputMaybe<ImageFilter>;
-  title: InputMaybe<StringFilter>;
-};
-
-export type EventTypeSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  bgColor: InputMaybe<SortOrder>;
-  image: InputMaybe<ImageSorting>;
-  title: InputMaybe<SortOrder>;
 };
 
 export type File = {
@@ -459,21 +415,65 @@ export type IntFilter = {
   neq: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type Project = Document & {
+  __typename?: 'Project';
+  /** Date the document was created */
+  _createdAt: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id: Maybe<Scalars['ID']['output']>;
+  _key: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  bgColor: Maybe<Scalars['String']['output']>;
+  image: Maybe<Image>;
+  title: Maybe<Scalars['String']['output']>;
+};
+
+export type ProjectFilter = {
+  /** Apply filters on document level */
+  _: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt: InputMaybe<DatetimeFilter>;
+  _id: InputMaybe<IdFilter>;
+  _key: InputMaybe<StringFilter>;
+  _rev: InputMaybe<StringFilter>;
+  _type: InputMaybe<StringFilter>;
+  _updatedAt: InputMaybe<DatetimeFilter>;
+  bgColor: InputMaybe<StringFilter>;
+  image: InputMaybe<ImageFilter>;
+  title: InputMaybe<StringFilter>;
+};
+
+export type ProjectSorting = {
+  _createdAt: InputMaybe<SortOrder>;
+  _id: InputMaybe<SortOrder>;
+  _key: InputMaybe<SortOrder>;
+  _rev: InputMaybe<SortOrder>;
+  _type: InputMaybe<SortOrder>;
+  _updatedAt: InputMaybe<SortOrder>;
+  bgColor: InputMaybe<SortOrder>;
+  image: InputMaybe<ImageSorting>;
+  title: InputMaybe<SortOrder>;
+};
+
 export type RootQuery = {
   __typename?: 'RootQuery';
   Document: Maybe<Document>;
   Donor: Maybe<Donor>;
+  Event: Maybe<Event>;
   EventImage: Maybe<EventImage>;
-  EventInstance: Maybe<EventInstance>;
-  EventType: Maybe<EventType>;
+  Project: Maybe<Project>;
   SanityFileAsset: Maybe<SanityFileAsset>;
   SanityImageAsset: Maybe<SanityImageAsset>;
   Status: Maybe<Status>;
   allDocument: Array<Document>;
   allDonor: Array<Donor>;
+  allEvent: Array<Event>;
   allEventImage: Array<EventImage>;
-  allEventInstance: Array<EventInstance>;
-  allEventType: Array<EventType>;
+  allProject: Array<Project>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
   allStatus: Array<Status>;
@@ -490,17 +490,17 @@ export type RootQueryDonorArgs = {
 };
 
 
+export type RootQueryEventArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type RootQueryEventImageArgs = {
   id: Scalars['ID']['input'];
 };
 
 
-export type RootQueryEventInstanceArgs = {
-  id: Scalars['ID']['input'];
-};
-
-
-export type RootQueryEventTypeArgs = {
+export type RootQueryProjectArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -536,6 +536,14 @@ export type RootQueryAllDonorArgs = {
 };
 
 
+export type RootQueryAllEventArgs = {
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<Array<EventSorting>>;
+  where: InputMaybe<EventFilter>;
+};
+
+
 export type RootQueryAllEventImageArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -544,19 +552,11 @@ export type RootQueryAllEventImageArgs = {
 };
 
 
-export type RootQueryAllEventInstanceArgs = {
+export type RootQueryAllProjectArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<EventInstanceSorting>>;
-  where: InputMaybe<EventInstanceFilter>;
-};
-
-
-export type RootQueryAllEventTypeArgs = {
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<EventTypeSorting>>;
-  where: InputMaybe<EventTypeFilter>;
+  sort: InputMaybe<Array<ProjectSorting>>;
+  where: InputMaybe<ProjectFilter>;
 };
 
 
@@ -1050,12 +1050,12 @@ export type StringFilter = {
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllEventsQuery = { __typename?: 'RootQuery', allEventInstance: Array<{ __typename?: 'EventInstance', _id: string | null, title: string | null, startDate: string | null, endDate: string | null, url: string | null, bgColor: string | null, mergedTitle: boolean | null, image: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', _id: string | null, assetId: string | null } | null } | null, eventType: { __typename?: 'EventType', title: string | null, bgColor: string | null, image: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', _id: string | null, assetId: string | null } | null } | null } | null }> };
+export type AllEventsQuery = { __typename?: 'RootQuery', allEvent: Array<{ __typename?: 'Event', _id: string | null, title: string | null, startDate: string | null, endDate: string | null, url: string | null, bgColor: string | null, mergedTitle: boolean | null, image: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', _id: string | null, assetId: string | null } | null } | null, project: { __typename?: 'Project', title: string | null, bgColor: string | null, image: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', _id: string | null, assetId: string | null } | null } | null } | null }> };
 
 
 export const AllEventsDocument = gql`
     query allEvents {
-  allEventInstance {
+  allEvent {
     _id
     title
     startDate
@@ -1069,7 +1069,7 @@ export const AllEventsDocument = gql`
         assetId
       }
     }
-    eventType {
+    project {
       title
       bgColor
       image {

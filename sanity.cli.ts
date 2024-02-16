@@ -11,7 +11,7 @@ export default defineCliConfig({
   api: { projectId, dataset },
   graphql: [
     {
-      playground: false,
+      playground: true,
     },
   ],
 });

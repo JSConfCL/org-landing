@@ -1,5 +1,5 @@
 query allEvents {
-  allEventInstance {
+  allEvent {
     _id
     title
     startDate, 
@@ -13,7 +13,7 @@ query allEvents {
         assetId
       }
     }
-    eventType {
+    project {
       title,
       bgColor,
      	image {
