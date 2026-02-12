@@ -1,4 +1,4 @@
-const title = "JavaScript Chile | Organización";
+const title = "JS Chile | Organización";
 const description = "JavaScript Chile | Buscamos promover el desarrollo y aprendizaje de JavaScript en el país y, a    la vez, ayudar a las comunidades de desarrolladores de todo Chile.";
 const url = "https://jschile.org";
 const images = "/og-image.png";
