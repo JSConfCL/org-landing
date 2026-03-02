@@ -1,38 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JavaScript Chile - Official Website
 
-## Getting Started
+¡Bienvenido al repositorio oficial del website de la comunidad [JavaScript Chile](https://jschile.org)! 
+Este proyecto es el hogar virtual para la comunidad de JavaScript más grande de Chile, conectando desarrolladores y centralizando nuestros eventos, recursos e información desde 2013.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Este proyecto está construido con un stack de tecnologías modernas y optimizadas para un alto rendimiento y escalabilidad:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Librería UI:** [React 19](https://react.dev/)
+- **Gestor de Paquetes:** [pnpm](https://pnpm.io/)
+- **Estilos & Componentes:** [Material UI (MUI) v7](https://mui.com/)
+- **Formularios & Validación:** `react-hook-form` + `zod`
+- **Envío de Correos:** [Resend](https://resend.com/) (Vía Server Actions)
+- **Lenguaje:** TypeScript
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 📁 Estructura del Proyecto
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+El código está organizado priorizando modularidad y separación de responsabilidades:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `/src/app`: Rutas principales de Next.js (App Router), `layout.tsx` principal y configuración básica de Metadatos y SEO de Next.js.
+- `/src/components`: Componentes UI reutilizables.
+- `/src/sections`: Componentes de gran escala que construyen estructuralmente la Single Page Application (ej: `Hero`, `HomeGallery`, `CodeOfConduct`).
+- `/src/layout`: Envolturas como `Navbar` y `Footer`.
+- `/src/theme`: Configuración, paleta de colores global y `CssBaseline` de Material UI.
+- `/src/actions`: Lógica de backend (Server Actions) como el envío de emails con Resend.
+- `/src/schemas`: Esquemas de validación abstractos de Zod.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Desarrollo Local
 
-## Learn More
+Si quieres correr o contribuir con el proyecto de forma local, sigue estos pasos:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/armandorivasv-dev/website-jschile.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Instala las dependencias:**
+   Se recomienda encarecidamente utilizar `pnpm` para asegurar lockfiles consistentes.
+   ```bash
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Configura las Variables de Entorno:**
+   Para poder usar el formulario de postulación a charlas o pruebas locales del envío de correos, crea un archivo `.env.local` en la raíz copiando el `.env.example` y añade tu clave:
+   ```env
+   RESEND_API_KEY=tu_api_key_de_resend
+   ```
 
-## Deploy on Vercel
+4. **Inicia el servidor de desarrollo:**
+   ```bash
+   pnpm dev
+   ```
+   Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛳️ Despliegue en Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este proyecto está preparado bajo los estándares de Next.js listos para ser desplegados sin contratiempos (Zero-config deployment) en **Vercel**. ¡La forma más fácil de desplegar tu aplicación en Next.js!
+
+**Instrucciones sugeridas:**
+1. Crea un proyecto en el panel de [Vercel](https://vercel.com/new).
+2. Importa el repositorio desde tu cuenta de GitHub.
+3. Asegúrate que en los **Environment Variables** de la configuración de Vercel (antes de darle Deploy) agregar tu `RESEND_API_KEY`.
+4. ¡El resto es trabajo automágico de Next.js! Todos los scripts de compilación (`pnpm build`) serán interpretados por defecto.
+
+## 🤝 Contribuyendo
+
+La rama principal del entorno de producción es `main`. 
+Para enviar contribuciones, se recomienda encarecidamente hacer branching desde la rama `dev` o usar tu propia rama feature (`feature/mi-implementacion`), para proceder a generar un Pull Request.
+
+---
+**Copyright © JavaScript Chile Community**
