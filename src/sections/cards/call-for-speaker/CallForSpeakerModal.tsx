@@ -57,7 +57,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
           gutterBottom
           sx={{ pr: 3 }}
         >
-          Postular como Speaker 🎤
+          🎤 Postular como Speaker
         </Typography>
 
         <Typography
@@ -65,8 +65,9 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
           color='text.secondary'
           sx={{ mb: 4, lineHeight: 1.6 }}
         >
-          Próximamente abriremos el Call for Speakers para nuestro próximo evento. 
-          ¡Mantente atento a nuestras redes sociales para más información! 🚀
+          Próximamente abriremos el Call for Speakers para nuestro próximo
+          evento. ¡Mantente atento a nuestras redes sociales para más
+          información! 🚀
         </Typography>
 
         <AnimatedButton

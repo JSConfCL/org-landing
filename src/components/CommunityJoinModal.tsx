@@ -9,6 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { AnimatedButton } from './AnimatedButton';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Stack } from '@mui/material';
 
 interface CommunityJoinModalProps {
   open: boolean;
@@ -69,7 +71,7 @@ export const CommunityJoinModal: React.FC<CommunityJoinModalProps> = ({
         <Typography
           variant='body2'
           color='text.secondary'
-          sx={{ mb: 4, fontWeight: 500 }}
+          sx={{ mb: 4, fontWeight: 500, textAlign: 'center' }}
         >
           Bienvenido al grupo de WhatsApp de JavaScript Chile 💛
         </Typography>
@@ -83,38 +85,41 @@ export const CommunityJoinModal: React.FC<CommunityJoinModalProps> = ({
             mb: 4,
           }}
         >
-          <Typography
-            variant='h6'
-            fontWeight='bold'
-            sx={{ fontSize: '1rem' }}
-          >
+          <Typography variant='h6' fontWeight='bold' sx={{ fontSize: '1rem' }}>
             📋 Resumen del Código de Conducta
           </Typography>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+              mt: 2,
+            }}
+          >
             <Typography variant='body2' sx={{ lineHeight: 1.6 }}>
-              <strong>Nuestra Comunidad es Inclusiva 🤝</strong>
+              <strong>🤝 Nuestra Comunidad es Inclusiva </strong>
               <br />
-              Todos son bienvenidos sin importar género, raza, orientación sexual,
-              capacidades o creencias.
+              Todos son bienvenidos sin importar género, raza, orientación
+              sexual, capacidades o creencias.
             </Typography>
 
             <Typography variant='body2' sx={{ lineHeight: 1.6 }}>
-              <strong>Cero Tolerancia al Acoso 🚫</strong>
+              <strong>🚫 Cero Tolerancia al Acoso </strong>
               <br />
-              No toleramos abuso físico/verbal, intimidación, acecho, ni contenido
-              inapropiado de ninguna forma o contexto.
+              No toleramos abuso físico/verbal, intimidación, acecho, ni
+              contenido inapropiado de ninguna forma o contexto.
             </Typography>
 
             <Typography variant='body2' sx={{ lineHeight: 1.6 }}>
-              <strong>Respeto y Profesionalismo 💬</strong>
+              <strong>💬 Respeto y Profesionalismo </strong>
               <br />
               Mantén un tono respetuoso. Cualquier violación resultará en
               expulsión del grupo y futuros eventos.
             </Typography>
 
             <Typography variant='body2' sx={{ lineHeight: 1.6 }}>
-              <strong>Reporta Problemas 🆘</strong>
+              <strong>🆘 Reporta Problemas </strong>
               <br />
               Si eres víctima o testigo de acoso, contacta inmediatamente a los
               moderadores.
@@ -129,9 +134,9 @@ export const CommunityJoinModal: React.FC<CommunityJoinModalProps> = ({
                 mt: 2,
               }}
             >
-              Somos una comunidad inclusiva que valora la diversidad. Si no estás
-              de acuerdo con estos valores, probablemente no sea el lugar para ti
-              😉
+              😉 Somos una comunidad inclusiva que valora la diversidad. Si no
+              estás de acuerdo con estos valores, probablemente no sea el lugar
+              para ti
             </Typography>
           </Box>
         </Box>
@@ -167,7 +172,10 @@ export const CommunityJoinModal: React.FC<CommunityJoinModalProps> = ({
             cursor: accepted ? 'pointer' : 'not-allowed',
           }}
         >
-          ✨ Ir al Grupo de WhatsApp
+          <Stack display='flex' flexDirection='row' alignItems='center'>
+            <WhatsAppIcon sx={{ mr: 1 }} />
+            Ir al Grupo de WhatsApp
+          </Stack>
         </AnimatedButton>
       </Box>
     </Modal>

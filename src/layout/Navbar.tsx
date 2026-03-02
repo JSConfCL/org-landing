@@ -17,6 +17,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { AnimatedButton } from '@/components/AnimatedButton';
 import { CommunityJoinModal } from '@/components/CommunityJoinModal';
+import { Stack } from '@mui/material';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const DRAWER_WIDTH = 250;
 
@@ -104,7 +106,14 @@ const Navbar = () => {
         <Container maxWidth={false}>
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Link href='/' style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <Link
+                href='/'
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  textDecoration: 'none',
+                }}
+              >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                   <Typography
                     sx={{
@@ -130,8 +139,7 @@ const Navbar = () => {
               </Link>
             </Box>
 
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
-            </Box>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}></Box>
 
             {/* Action Buttons & Mobile Menu Toggle */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -152,7 +160,10 @@ const Navbar = () => {
                   color: 'black',
                 }}
               >
-                Unirse a la Comunidad
+                <Stack display='flex' flexDirection='row' alignItems='center'>
+                  <WhatsAppIcon sx={{ mr: 1 }} />
+                  Unirse a la Comunidad
+                </Stack>
               </AnimatedButton>
 
               <IconButton

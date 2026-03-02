@@ -33,27 +33,27 @@ const modalStyle = {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87',
+    img: '/assets/events/2026/1ra-junta/junta-vasual-2026-02-06-18.35.01.jpeg',
     title: 'Conference Audience',
   },
   {
-    img: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952',
+    img: '/assets/events/2026/1ra-junta/junta-casual 2026-02-07-08.34.59.jpg',
     title: 'Meetup Collaboration',
   },
   {
-    img: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.12.jpeg',
     title: 'Tech Speaker',
   },
   {
-    img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.15.jpeg',
     title: 'Networking Event',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.18.jpeg',
     title: 'Hackathon Team',
   },
   {
-    img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.16.jpeg',
     title: 'Tech Meetup',
   },
 ];
@@ -107,17 +107,12 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
         </Typography>
 
         <Typography variant='body1' color='text.secondary' sx={{ mb: 3 }}>
-          Revive los mejores momentos de nuestros meetups y conferencias. 
+          Revive los mejores momentos de nuestros meetups y conferencias.
           Inspiración y aprendizaje en cada encuentro. 🎉
         </Typography>
 
         <Box sx={{ width: '100%', mb: 3 }}>
-          <ImageList
-            variant='quilted'
-            cols={3}
-            rowHeight={150}
-            gap={12}
-          >
+          <ImageList variant='quilted' cols={3} rowHeight={150} gap={12}>
             {itemData.map((item, index) => {
               const layout = pattern[index % pattern.length];
               return (

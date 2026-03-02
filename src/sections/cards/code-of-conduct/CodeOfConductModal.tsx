@@ -55,7 +55,7 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
           fontWeight='bold'
           gutterBottom
         >
-          Código de Conducta 🤝
+          🤝 Código de Conducta
         </Typography>
 
         <Box id='code-of-conduct-modal-description' sx={{ mt: 2 }}>
@@ -96,7 +96,8 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
             raza, orientación sexual, capacidades, apariencia física y/o
             creencias. No toleramos el acoso bajo ningún tipo, forma ni
             contexto, directa o indirectamente. Cualquier participante que viole
-            estas reglas será sancionado y expulsado de este y futuros eventos 🚫
+            estas reglas será sancionado y expulsado de este y futuros eventos
+            🚫
           </Typography>
 
           <Typography
@@ -117,8 +118,8 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
               de conocimiento, raza y/o creencias religiosas. Adicionalmente,
               creación y/o reproducción de imágenes de contenido sexual en
               espacios públicos, intimidación física y/o verbal, acecho,
-              interrupciones groseras de charlas y/o contacto físico
-              inapropiado 🚨
+              interrupciones groseras de charlas y/o contacto físico inapropiado
+              🚨
             </Typography>
             <Typography
               variant='body1'

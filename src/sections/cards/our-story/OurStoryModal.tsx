@@ -88,7 +88,7 @@ export const OurStoryModal: React.FC<OurStoryModalProps> = ({
           fontWeight='bold'
           gutterBottom
         >
-          Nuestra Historia 📖
+          📖 Nuestra Historia
         </Typography>
 
         <Typography

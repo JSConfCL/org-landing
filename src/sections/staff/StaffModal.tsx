@@ -99,7 +99,7 @@ const StaffModal: React.FC<StaffModalProps> = ({ open, onClose, staff }) => {
               rel='noopener noreferrer'
               sx={{ display: 'flex', alignItems: 'center' }}
             >
-              <IconButton size='small' sx={{ color: '#E4405F' }}>
+              <IconButton size='small' sx={{ color: 'primary.main' }}>
                 <InstagramIcon />
               </IconButton>
             </Link>
@@ -111,7 +111,7 @@ const StaffModal: React.FC<StaffModalProps> = ({ open, onClose, staff }) => {
               rel='noopener noreferrer'
               sx={{ display: 'flex', alignItems: 'center' }}
             >
-              <IconButton size='small' sx={{ color: '#000' }}>
+              <IconButton size='small' sx={{ color: 'primary.main' }}>
                 <LanguageIcon />
               </IconButton>
             </Link>

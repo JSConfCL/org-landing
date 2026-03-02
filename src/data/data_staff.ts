@@ -120,7 +120,7 @@ export const DATA_STAFF: StaffMember[] = [
   {
     id: '11',
     fullName: 'Mapachito',
-    email: 'mapachitodev@gmail.com',
+    linkedin: 'https://cl.linkedin.com/in/konstanzabosch',
     date: '2026 - Presente',
     role: 'Staff',
     imageUrl: '/assets/staff/staff-mapachito.jpeg',
@@ -128,11 +128,20 @@ export const DATA_STAFF: StaffMember[] = [
   },
   {
     id: '12',
-    fullName: 'Carlos Armando',
-    email: 'carlos.armandor28@gmail.com',
+    fullName: 'Carlos Romero',
+    linkedin: 'https://www.instagram.com/cxrlosarmando/',
     date: '2026 - Presente',
     role: 'Staff',
-    imageUrl: '#',
+    imageUrl: '/assets/staff/staff-carlos-romero.jpeg',
+    isExStaff: false,
+  },
+  {
+    id: '13',
+    fullName: 'Javier Vargas',
+    linkedin: 'https://www.linkedin.com/in/javierdvt/',
+    date: '2026 - Presente',
+    role: 'Staff',
+    imageUrl: '/assets/staff/staff-javier-vargas.png',
     isExStaff: false,
   },
 ];

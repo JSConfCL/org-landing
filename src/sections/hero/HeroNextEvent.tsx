@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import BoltIcon from '@mui/icons-material/Bolt';
 import { AnimatedButton } from '@/components/AnimatedButton';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { Stack } from '@mui/material';
 
 export const HeroNextEvent = () => {
   return (
@@ -50,7 +52,10 @@ export const HeroNextEvent = () => {
           href='https://luma.com/jschile'
           target='_blank'
         >
-          🎟️ Ver próximos eventos
+          <Stack display='flex' flexDirection='row' alignItems='center'>
+            <CalendarMonthIcon sx={{ mr: 1 }} />
+            Ver próximos eventos
+          </Stack>
         </AnimatedButton>
       </CardActions>
     </Card>
