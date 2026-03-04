@@ -9,6 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { AnimatedButton } from '@/components/AnimatedButton';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import { Stack } from '@mui/material';
 
 interface GalleryModalProps {
   open: boolean;
@@ -96,19 +98,22 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
           <CloseIcon />
         </IconButton>
 
-        <Typography
-          id='gallery-modal-title'
-          variant='h4'
-          component='h2'
-          fontWeight='bold'
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='flex-start'
+          spacing={1.5}
           sx={{ mb: 2 }}
         >
-          📸 Galería de Eventos
-        </Typography>
+          <PhotoCameraIcon sx={{ color: 'primary.main', fontSize: '2.5rem' }} />
+          <Typography variant='h5' component='h2'>
+            Galería de Eventos
+          </Typography>
+        </Stack>
 
         <Typography variant='body1' color='text.secondary' sx={{ mb: 3 }}>
           Revive los mejores momentos de nuestros meetups y conferencias.
-          Inspiración y aprendizaje en cada encuentro. 🎉
+          Inspiración y aprendizaje en cada encuentro.
         </Typography>
 
         <Box sx={{ width: '100%', mb: 3 }}>

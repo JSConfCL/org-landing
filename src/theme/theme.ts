@@ -11,16 +11,16 @@ const inter = Inter({
 
 // Brand Palette based on JSChile Logo
 const brand = {
-  50: "#FEFCE8",
-  100: "#FEF9C3",
-  200: "#FEF08A",
-  300: "#FDE047",
-  400: "#FACC15",
-  500: "#ecd51a", // Official JS Yellow (Matches Logo)
-  600: "#EAB308",
-  700: "#CA8A04",
-  800: "#A16207",
-  900: "#713F12",
+  50: '#FEFCE8',
+  100: '#FEF9C3',
+  200: '#FEF08A',
+  300: '#FDE047',
+  400: '#FACC15',
+  500: '#ecd51a', // Official JS Yellow (Matches Logo)
+  600: '#EAB308',
+  700: '#CA8A04',
+  800: '#A16207',
+  900: '#713F12',
 };
 
 const gray = {
@@ -76,7 +76,7 @@ const theme = createTheme({
     },
     button: {
       fontWeight: 700,
-      textTransform: "none", // Prevent uppercase
+      textTransform: 'none', // Prevent uppercase
     },
   },
   shape: {
@@ -109,13 +109,13 @@ const theme = createTheme({
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: "32px",
-          display: "flex",
-          flexDirection: "column",
+          padding: '32px',
+          display: 'flex',
+          flexDirection: 'column',
           flexGrow: 1,
           marginBottom: 0,
-          "&:last-child": {
-            paddingBottom: "32px",
+          '&:last-child': {
+            paddingBottom: '32px',
           },
         },
       },
@@ -123,7 +123,7 @@ const theme = createTheme({
     MuiCardActions: {
       styleOverrides: {
         root: {
-          padding: "32px",
+          padding: '32px',
           paddingTop: 0,
         },
       },
@@ -141,11 +141,11 @@ const theme = createTheme({
           },
         },
         containedSecondary: {
-            backgroundColor: '#000000',
-            color: '#FFFFFF',
-            '&:hover': {
-                backgroundColor: '#333333',
-            },
+          backgroundColor: '#000000',
+          color: '#FFFFFF',
+          '&:hover': {
+            backgroundColor: '#333333',
+          },
         },
       },
     },

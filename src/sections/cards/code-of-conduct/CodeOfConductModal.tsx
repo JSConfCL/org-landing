@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import GavelIcon from '@mui/icons-material/Gavel';
+import { Stack } from '@mui/material';
 
 interface CodeOfConductModalProps {
   open: boolean;
@@ -48,23 +50,23 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
           <CloseIcon />
         </IconButton>
 
-        <Typography
-          id='code-of-conduct-modal-title'
-          variant='h4'
-          component='h2'
-          fontWeight='bold'
-          gutterBottom
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='flex-start'
+          spacing={1.5}
+          sx={{ mb: 2 }}
         >
-          🤝 Código de Conducta
-        </Typography>
+          <GavelIcon sx={{ color: 'primary.main', fontSize: '2.5rem' }} />
 
-        <Box id='code-of-conduct-modal-description' sx={{ mt: 2 }}>
-          <Typography
-            variant='h6'
-            fontWeight='bold'
-            sx={{ mt: 3, mb: 1, color: '#000000' }}
-          >
-            La versión más corta de todas ✨
+          <Typography variant='h5' component='h2'>
+            Código de Conducta
+          </Typography>
+        </Stack>
+
+        <Box>
+          <Typography variant='h6' sx={{ mt: 3, mb: 1, color: '#000000' }}>
+            La versión más corta de todas
           </Typography>
           <Typography
             variant='body1'
@@ -73,15 +75,11 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
           >
             ¿Has visto como luego de algunos eventos, todos terminan hablando de
             “aquella persona” que causó un mal rato a uno o más asistentes?. Que
-            no sea de ti de quien hablen 🙂
+            no sea de ti de quien hablen
           </Typography>
 
-          <Typography
-            variant='h6'
-            fontWeight='bold'
-            sx={{ mt: 4, mb: 1, color: '#000000' }}
-          >
-            La versión no tan corta 📌
+          <Typography variant='h6' sx={{ mt: 4, mb: 1, color: '#000000' }}>
+            La versión no tan corta
           </Typography>
           <Typography
             variant='body1'
@@ -97,15 +95,10 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
             creencias. No toleramos el acoso bajo ningún tipo, forma ni
             contexto, directa o indirectamente. Cualquier participante que viole
             estas reglas será sancionado y expulsado de este y futuros eventos
-            🚫
           </Typography>
 
-          <Typography
-            variant='h6'
-            fontWeight='bold'
-            sx={{ mt: 4, mb: 1, color: '#000000' }}
-          >
-            La versión más larga ¿Qué se entiende por acoso? 🧭
+          <Typography variant='h6' sx={{ mt: 4, mb: 1, color: '#000000' }}>
+            La versión más larga ¿Qué se entiende por acoso?
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Typography
@@ -119,7 +112,6 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
               creación y/o reproducción de imágenes de contenido sexual en
               espacios públicos, intimidación física y/o verbal, acecho,
               interrupciones groseras de charlas y/o contacto físico inapropiado
-              🚨
             </Typography>
             <Typography
               variant='body1'
@@ -130,7 +122,7 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
               comportamiento relacionado a lo anterior que sea visto durante un
               evento, sea detenido inmediatamente por quien(es) lo realizan.
               Adicionalmente, quienes atenten contra este código de conducta,
-              podrán ser expulsados de este y futuros eventos ⚠️
+              podrán ser expulsados de este y futuros eventos
             </Typography>
             <Typography
               variant='body1'
@@ -143,7 +135,7 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
               se identificarán oportunamente al comienzo de cada instancia. Si
               es necesario, la organización ayudará a contactar autoridades
               policiales y/o proveerá cualquier tipo de asistencia necesaria
-              para remediar la situación 🆘
+              para remediar la situación
             </Typography>
             <Typography
               variant='body1'
@@ -152,7 +144,7 @@ export const CodeOfConductModal: React.FC<CodeOfConductModalProps> = ({
             >
               Somos una comunidad inclusiva que valora la diversidad. Si no
               estás de acuerdo con esto, probablemente no debas estar en
-              nuestros eventos 💛
+              nuestros eventos
             </Typography>
           </Box>
         </Box>

@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { Stack } from '@mui/material';
+import HistoryIcon from '@mui/icons-material/History';
 
 interface OurStoryModalProps {
   open: boolean;
@@ -30,31 +32,31 @@ const modalStyle = {
 const timelineData = [
   {
     year: '2013',
-    title: 'Los Inicios 🌱',
+    title: 'Los Inicios ',
     description:
       'Nace la comunidad de JavaScript Chile como un pequeño grupo de entusiastas buscando compartir conocimientos y experiencias con esta tecnología web emergente.',
   },
   {
     year: '2016',
-    title: 'Crecimiento y Consolidación 📈',
+    title: 'Crecimiento y Consolidación ',
     description:
       'Los meetups mensuales comienzan a ser un éxito, atrayendo a centenares de desarrolladores. JS Chile se convierte en la principal agrupación de la tecnología en el país.',
   },
   {
     year: '2018',
-    title: 'Hito Histórico: JSConf Chile 🎉',
+    title: 'Hito Histórico: JSConf Chile ',
     description:
       'Se organiza la primera edición de la prestigiosa conferencia internacional JSConf en nuestro país, posicionando a Chile en el mapa global del desarrollo frontend.',
   },
   {
     year: '2023',
-    title: 'Renacimiento Pospandemia 🔄',
+    title: 'Renacimiento Pospandemia ',
     description:
       'Tras unos años desafiantes, un nuevo grupo de organizadores toma la batuta para reactivar la magia de los meetups presenciales, llenando nuevamente los auditorios.',
   },
   {
     year: '2026',
-    title: 'El Futuro es Ahora 🚀',
+    title: 'El Futuro es Ahora ',
     description:
       'Lanzamiento de la nueva identidad visual y plataforma web oficial. La comunidad más grande de desarrollo en Chile sigue construyendo un puente educativo accesible para todos.',
   },
@@ -81,24 +83,27 @@ export const OurStoryModal: React.FC<OurStoryModalProps> = ({
           <CloseIcon />
         </IconButton>
 
-        <Typography
-          id='our-story-modal-title'
-          variant='h4'
-          component='h2'
-          fontWeight='bold'
-          gutterBottom
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='flex-start'
+          spacing={1.5}
+          sx={{ mb: 2 }}
         >
-          📖 Nuestra Historia
-        </Typography>
+          <HistoryIcon sx={{ color: 'primary.main', fontSize: '2.5rem' }} />
+
+          <Typography variant='h5' component='h2'>
+            Nuestra Historia
+          </Typography>
+        </Stack>
 
         <Typography
-          id='our-story-modal-description'
           variant='body1'
           color='text.secondary'
           sx={{ mt: 1, mb: 4, lineHeight: 1.6 }}
         >
           Conoce cómo evolucionó la comunidad de JavaScript más activa de Chile
-          a través de los años 💛
+          a través de los años
         </Typography>
 
         {/* Timeline Minimalista Custom */}
@@ -144,7 +149,6 @@ export const OurStoryModal: React.FC<OurStoryModalProps> = ({
                 <Typography
                   variant='h6'
                   sx={{
-                    fontWeight: 800,
                     color: 'text.primary',
                     lineHeight: 1.2,
                   }}

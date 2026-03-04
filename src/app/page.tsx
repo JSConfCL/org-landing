@@ -1,4 +1,4 @@
-import Staff from '@/sections/staff/Staff';
+import StaffContainer from '@/sections/staff/StaffContainer';
 import { HeroContainer } from '@/sections/hero/HeroContainer';
 import { CardsContainer } from '@/sections/cards/CardsContainer';
 
@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <HeroContainer />
       <CardsContainer />
-      <Staff />
+      <StaffContainer />
     </main>
   );
 }

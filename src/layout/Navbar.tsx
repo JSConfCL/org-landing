@@ -139,8 +139,6 @@ const Navbar = () => {
               </Link>
             </Box>
 
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}></Box>
-
             {/* Action Buttons & Mobile Menu Toggle */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <AnimatedButton
@@ -150,12 +148,12 @@ const Navbar = () => {
                 hoverColor='#FFE970'
                 disableElevation
                 sx={{
-                  display: { xs: 'none', sm: 'block' },
+                  display: 'flex',
                   fontWeight: 950,
-                  px: 4,
-                  py: 1.5,
+                  px: { xs: 1, sm: 4 },
+                  py: { xs: 1, sm: 1.5 },
                   borderRadius: 100,
-                  fontSize: '1rem',
+                  fontSize: { xs: '0.7rem', sm: '1rem' },
                   bgcolor: '#F0DB4F',
                   color: 'black',
                 }}
@@ -165,42 +163,10 @@ const Navbar = () => {
                   Unirse a la Comunidad
                 </Stack>
               </AnimatedButton>
-
-              <IconButton
-                color='inherit'
-                aria-label='abrir menú'
-                edge='start'
-                onClick={handleDrawerToggle}
-                sx={{ display: { md: 'none' }, color: 'white' }}
-              >
-                <MenuIcon />
-              </IconButton>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-
-      {/* Mobile Drawer */}
-      <nav>
-        <Drawer
-          variant='temporary'
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: DRAWER_WIDTH,
-              bgcolor: '#0B0B0B',
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
 
       <CommunityJoinModal
         open={isCommunityModalOpen}

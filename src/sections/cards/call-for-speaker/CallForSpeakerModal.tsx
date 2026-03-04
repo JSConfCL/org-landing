@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { AnimatedButton } from '@/components/AnimatedButton';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
+import { Stack } from '@mui/material';
 
 interface CallForSpeakerModalProps {
   open: boolean;
@@ -49,16 +51,21 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
           <CloseIcon />
         </IconButton>
 
-        <Typography
-          id='call-for-speaker-modal-title'
-          variant='h4'
-          component='h2'
-          fontWeight='bold'
-          gutterBottom
-          sx={{ pr: 3 }}
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='flex-start'
+          spacing={1.5}
+          sx={{ mb: 2 }}
         >
-          🎤 Postular como Speaker
-        </Typography>
+          <KeyboardVoiceIcon
+            sx={{ color: 'primary.main', fontSize: '2.5rem' }}
+          />
+
+          <Typography variant='h5' component='h2' sx={{ pr: 3 }}>
+            Postular como Speaker
+          </Typography>
+        </Stack>
 
         <Typography
           variant='body1'
@@ -67,7 +74,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
         >
           Próximamente abriremos el Call for Speakers para nuestro próximo
           evento. ¡Mantente atento a nuestras redes sociales para más
-          información! 🚀
+          información!
         </Typography>
 
         <AnimatedButton

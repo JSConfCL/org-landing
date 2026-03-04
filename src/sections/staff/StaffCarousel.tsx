@@ -15,13 +15,13 @@ interface StaffCarouselProps {
   reverseDirection?: boolean;
 }
 
-export const StaffCarousel: React.FC<StaffCarouselProps> = ({ 
-  staff, 
+export const StaffCarousel: React.FC<StaffCarouselProps> = ({
+  staff,
   onStaffClick,
   size = 'large',
   isExStaff = false,
   isModalOpen = false,
-  reverseDirection = false
+  reverseDirection = false,
 }) => {
   const [isPaused, setIsPaused] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
@@ -38,12 +38,16 @@ export const StaffCarousel: React.FC<StaffCarouselProps> = ({
 
   // Duplicar el array para crear efecto infinito
   const triplicatedStaff = [...staff, ...staff, ...staff];
-  const duplicatedStaff = reverseDirection ? triplicatedStaff.reverse() : triplicatedStaff;
+  const duplicatedStaff = reverseDirection
+    ? triplicatedStaff.reverse()
+    : triplicatedStaff;
 
   const cardWidth = 120;
   const gap = 16;
   const totalWidth = (cardWidth + gap) * staff.length;
-  const animationValues = reverseDirection ? [0, -totalWidth] : [-totalWidth, 0];
+  const animationValues = reverseDirection
+    ? [0, -totalWidth]
+    : [-totalWidth, 0];
 
   return (
     <Box

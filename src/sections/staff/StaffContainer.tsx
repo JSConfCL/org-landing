@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+import { Box, Container, Typography, Grid, Stack } from '@mui/material';
 import { DATA_STAFF, StaffMember } from '@/data/data_staff';
 import StaffModal from './StaffModal';
-import { StaffCarousel } from '@/components/StaffCarousel';
 
-const Staff: React.FC = () => {
+import StarIcon from '@mui/icons-material/Star';
+import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
+import { StaffCarousel } from './StaffCarousel';
+
+const StaffContainer: React.FC = () => {
   const [selectedStaff, setSelectedStaff] = useState<StaffMember | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,16 +41,25 @@ const Staff: React.FC = () => {
             }}
           >
             <Box sx={{ mb: 3 }}>
-              <Typography
-                variant='h5'
-                component='h3'
-                fontWeight='bold'
-                textAlign='center'
-                sx={{ mb: 1, color: 'black' }}
+              <Stack
+                direction='row'
+                alignItems='center'
+                justifyContent='center'
+                spacing={1}
+                sx={{ mb: 1 }}
               >
-                ⭐ Staff 2026
-              </Typography>
-              <StaffCarousel 
+                <StarIcon sx={{ color: 'primary.main', fontSize: '2rem' }} />
+
+                <Typography
+                  variant='h5'
+                  component='h3'
+                  fontWeight='bold'
+                  sx={{ color: 'black' }}
+                >
+                  Staff 2026
+                </Typography>
+              </Stack>
+              <StaffCarousel
                 staff={currentStaff}
                 onStaffClick={handleOpenModal}
                 size='large'
@@ -59,16 +68,28 @@ const Staff: React.FC = () => {
             </Box>
 
             <Box>
-              <Typography
-                variant='h5'
-                component='h3'
-                fontWeight='bold'
-                textAlign='center'
-                sx={{ mb: 1, color: 'black' }}
+              <Stack
+                direction='row'
+                alignItems='center'
+                justifyContent='center'
+                spacing={1}
+                sx={{ mb: 1 }}
               >
-                📅 2023 al 2025
-              </Typography>
-              <StaffCarousel 
+                <CalendarViewMonthIcon
+                  sx={{ color: 'primary.main', fontSize: '2rem' }}
+                />
+
+                <Typography
+                  variant='h5'
+                  component='h3'
+                  fontWeight='bold'
+                  textAlign='center'
+                  sx={{ mb: 1, color: 'black' }}
+                >
+                  2023 al 2025
+                </Typography>
+              </Stack>
+              <StaffCarousel
                 staff={exStaff}
                 onStaffClick={handleOpenModal}
                 size='small'
@@ -90,4 +111,4 @@ const Staff: React.FC = () => {
   );
 };
 
-export default Staff;
+export default StaffContainer;

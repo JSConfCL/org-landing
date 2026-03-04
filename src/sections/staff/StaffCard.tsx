@@ -14,11 +14,11 @@ interface StaffCardProps {
   isExStaff?: boolean;
 }
 
-export const StaffCard: React.FC<StaffCardProps> = ({ 
-  staff, 
+export const StaffCard: React.FC<StaffCardProps> = ({
+  staff,
   onClick,
   size = 'large',
-  isExStaff = false
+  isExStaff = false,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -70,7 +70,8 @@ export const StaffCard: React.FC<StaffCardProps> = ({
               backgroundImage: `url(${staff.imageUrl})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              filter: isExStaff && !isHovered ? 'grayscale(100%)' : 'grayscale(0%)',
+              filter:
+                isExStaff && !isHovered ? 'grayscale(100%)' : 'grayscale(0%)',
             }}
           />
         </motion.div>
@@ -81,9 +82,7 @@ export const StaffCard: React.FC<StaffCardProps> = ({
           textAlign='center'
           color='text.primary'
           sx={{
-            textShadow: isHovered 
-              ? '0 0 10px rgba(240, 219, 79, 0.5)' 
-              : 'none',
+            textShadow: isHovered ? '0 0 10px rgba(240, 219, 79, 0.5)' : 'none',
             transition: 'text-shadow 0.3s ease',
           }}
         >
