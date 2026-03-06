@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate": "next build",
+    "prestart": "npm run generate",
+    "predev": "npm run generate",
+    "typecheck": "tsc",
+    "lint": "npx eslint --cache src",
+    "lint:fix": "npx eslint --cache src --fix",
+    "prettier": "prettier ./src --cache --check",
+    "prettier:fix": "prettier ./src --cache --write"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
