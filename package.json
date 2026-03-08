@@ -16,6 +16,9 @@
     "prettier": "prettier ./src --cache --check",
     "prettier:fix": "prettier ./src --cache --write"
   },
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
