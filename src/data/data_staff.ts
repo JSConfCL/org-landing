@@ -17,7 +17,7 @@ export const DATA_STAFF: StaffMember[] = [
     id: '1',
     fullName: 'Felipe Torres',
     linkedin: '#',
-    date: '2021 - 2022',
+    date: '2021 - 2025',
     role: 'Staff',
     imageUrl:
       'https://images.ctfassets.net/1kfhsqlc8ewi/YuqGoARq0hYmpBhwniMWM/e84bfeb2f1300141c8c0edb057762dc8/orador7.jfif?fm=webp',
@@ -27,7 +27,7 @@ export const DATA_STAFF: StaffMember[] = [
     id: '2',
     fullName: 'Pillippa Pérez',
     linkedin: '#',
-    date: '2021 - 2022',
+    date: '2021 - 2025',
     role: 'Staff',
     imageUrl:
       'https://images.ctfassets.net/1kfhsqlc8ewi/4JBzrUmH0Szm26QAbJc0oS/e09599d38e5a5f35a3260f8e36d7f153/1651333822799.jpeg?fm=webp',
@@ -37,7 +37,7 @@ export const DATA_STAFF: StaffMember[] = [
     id: '3',
     fullName: 'José Lezama',
     linkedin: '#',
-    date: '2021 - 2023',
+    date: '2021 - 2025',
     role: 'Staff',
     imageUrl:
       'https://images.ctfassets.net/1kfhsqlc8ewi/22P8iUNzQ0oQQCNRS35PfO/74bd811c67efa0ba63654d9911df8f42/1538169655669.jpeg?fm=webp',
@@ -47,7 +47,7 @@ export const DATA_STAFF: StaffMember[] = [
     id: '4',
     fullName: 'Francisco Cordero',
     linkedin: '#',
-    date: '2021 - 2023',
+    date: '2021 - 2025',
     role: 'Staff',
     imageUrl:
       'https://images.ctfassets.net/1kfhsqlc8ewi/4Jmvken6n1z12JwlY97d91/6b92dd6a0d2f9b35ef9fdea595bae414/profile-pic.jpeg?fm=webp',
@@ -57,7 +57,7 @@ export const DATA_STAFF: StaffMember[] = [
     id: '5',
     fullName: 'Leslie Herrera',
     linkedin: '#',
-    date: '2021 - 2023',
+    date: '2021 - 2025',
     role: 'Staff',
     imageUrl:
       'https://images.ctfassets.net/1kfhsqlc8ewi/3Ke2I6VkZh0FiEPkkyjagN/32a4ae2ce8ad8e516990f51478d7ca4e/foto-leslie.jpeg?fm=webp',
