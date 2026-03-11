@@ -35,28 +35,28 @@ const modalStyle = {
 
 const itemData = [
   {
-    img: '/assets/events/2026/1ra-junta/junta-vasual-2026-02-06-18.35.01.jpeg',
-    title: 'Conference Audience',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.01.jpeg',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
   {
-    img: '/assets/events/2026/1ra-junta/junta-casual 2026-02-07-08.34.59.jpg',
-    title: 'Meetup Collaboration',
+    img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-07-08.34.59.jpg',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
   {
     img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.12.jpeg',
-    title: 'Tech Speaker',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
   {
     img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.15.jpeg',
-    title: 'Networking Event',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
   {
     img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.18.jpeg',
-    title: 'Hackathon Team',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
   {
     img: '/assets/events/2026/1ra-junta/junta-casual-2026-02-06-18.35.16.jpeg',
-    title: 'Tech Meetup',
+    title: '1ra Junta Casual JS Chile Febrero 2026',
   },
 ];
 

@@ -9,7 +9,7 @@ Este proyecto está construido con un stack de tecnologías modernas y optimizad
 
 - **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
 - **Librería UI:** [React 19](https://react.dev/)
-- **Gestor de Paquetes:** [pnpm](https://pnpm.io/)
+- **Gestor de Paquetes:** [npm](https://www.npmjs.com/)
 - **Estilos & Componentes:** [Material UI (MUI) v7](https://mui.com/)
 - **Formularios & Validación:** `react-hook-form` + `zod`
 - **Envío de Correos:** [Resend](https://resend.com/) (Vía Server Actions)
@@ -37,9 +37,8 @@ Si quieres correr o contribuir con el proyecto de forma local, sigue estos pasos
    ```
 
 2. **Instala las dependencias:**
-   Se recomienda encarecidamente utilizar `pnpm` para asegurar lockfiles consistentes.
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. **Configura las Variables de Entorno:**
@@ -50,19 +49,22 @@ Si quieres correr o contribuir con el proyecto de forma local, sigue estos pasos
 
 4. **Inicia el servidor de desarrollo:**
    ```bash
-   pnpm dev
+   npm run dev
    ```
    Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-## 🛳️ Despliegue en Vercel
+## 🛳️ Despliegue en Cloudflare Pages
 
-Este proyecto está preparado bajo los estándares de Next.js listos para ser desplegados sin contratiempos (Zero-config deployment) en **Vercel**. ¡La forma más fácil de desplegar tu aplicación en Next.js!
+Este proyecto está configurado para exportación estática y listo para ser desplegado en **Cloudflare Pages**.
 
-**Instrucciones sugeridas:**
-1. Crea un proyecto en el panel de [Vercel](https://vercel.com/new).
-2. Importa el repositorio desde tu cuenta de GitHub.
-3. Asegúrate que en los **Environment Variables** de la configuración de Vercel (antes de darle Deploy) agregar tu `RESEND_API_KEY`.
-4. ¡El resto es trabajo automágico de Next.js! Todos los scripts de compilación (`pnpm build`) serán interpretados por defecto.
+**Configuración de Despliegue:**
+1. Conecta tu repositorio de GitHub a [Cloudflare Pages](https://dash.cloudflare.com/).
+2. Configura los siguientes parámetros en el dashboard de Cloudflare:
+   - **Framework preset:** `Next.js (Static HTML export)`
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+3. Asegúrate de agregar tu `RESEND_API_KEY` en las variables de entorno de Cloudflare.
+4. El proyecto usa `output: 'export'` en `next.config.ts`, lo que genera una carpeta `out` lista para ser servida por Cloudflare.
 
 ## 🤝 Contribuyendo
 
@@ -71,3 +73,4 @@ Para enviar contribuciones, se recomienda encarecidamente hacer branching desde 
 
 ---
 **Copyright © JavaScript Chile Community**
+

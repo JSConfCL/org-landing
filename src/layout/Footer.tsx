@@ -63,7 +63,7 @@ const Footer = () => {
       </Typography>
 
       <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
-        <IconButton 
+        <IconButton
           size='small'
           href='https://github.com/jschile'
           target='_blank'
@@ -73,7 +73,7 @@ const Footer = () => {
         >
           <GitHubIcon sx={{ fontSize: 18 }} />
         </IconButton>
-        <IconButton 
+        <IconButton
           size='small'
           href='https://linkedin.com/company/jscriptchile'
           target='_blank'
@@ -83,7 +83,7 @@ const Footer = () => {
         >
           <LinkedInIcon sx={{ fontSize: 18 }} />
         </IconButton>
-        <IconButton 
+        <IconButton
           size='small'
           href='https://twitter.com/jscriptchile'
           target='_blank'
@@ -93,7 +93,7 @@ const Footer = () => {
         >
           <TwitterIcon sx={{ fontSize: 18 }} />
         </IconButton>
-        <IconButton 
+        <IconButton
           size='small'
           href='mailto:contacto@jschile.org'
           component='a'
@@ -103,16 +103,19 @@ const Footer = () => {
         </IconButton>
       </Box>
 
-      <Typography variant='caption' sx={{ fontWeight: 500, color: '#999', fontSize: '0.65rem' }}>
+      <Typography
+        variant='caption'
+        sx={{ fontWeight: 500, color: '#999', fontSize: '0.65rem' }}
+      >
         © 2026 JavaScript Chile • Desarrollado por{' '}
         <Link
-          href='https://www.armandorivasv.dev/'
+          href='https://www.rivascode.dev/'
           target='_blank'
           rel='noopener noreferrer'
           color='inherit'
           underline='hover'
         >
-          ArmandoRivasV
+          RivasCode
         </Link>
       </Typography>
     </Box>

@@ -49,8 +49,10 @@ export const AnimatedButton = ({
           overflow: 'hidden',
           isolation: 'isolate',
           transition: 'color 0.25s ease',
+          border: '1px solid transparent',
           '&:hover': {
             color: '#000000',
+            border: '1px solid #000000',
           },
         },
         ...(Array.isArray(sx) ? sx : [sx]),
