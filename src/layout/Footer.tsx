@@ -20,7 +20,6 @@ const Footer = () => {
         color: 'black',
         py: { xs: 1.5, md: 2 },
         px: { xs: 2, md: 4 },
-        borderRadius: '32px',
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: 'center',
