@@ -9,7 +9,7 @@ import { Gallery } from './gallery/Gallery';
 
 export const CardsContainer = () => {
   return (
-    <Container maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 4 }}>
+    <Container id='comunidad' maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 4 }}>
       <Grid container spacing={4}>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <OurStory />

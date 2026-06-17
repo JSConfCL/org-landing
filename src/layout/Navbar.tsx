@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,12 +8,12 @@ import Container from '@mui/material/Container';
 import Link from 'next/link';
 
 import { AnimatedButton } from '@/components/AnimatedButton';
-import { CommunityJoinModal } from '@/components/CommunityJoinModal';
+import { useCommunityModal } from '@/providers/CommunityModalProvider';
 import { Stack } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Navbar = () => {
-  const [isCommunityModalOpen, setIsCommunityModalOpen] = React.useState(false);
+  const { openModal } = useCommunityModal();
 
   return (
     <>
@@ -25,12 +24,12 @@ const Navbar = () => {
         sx={{
           top: 0,
           zIndex: 1100,
-          borderBottom: '2px solid rgba(255,255,255,0.15)',
-          bgcolor: 'rgba(25, 25, 25, 0.6)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
+          bgcolor: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(5.4px)',
+          WebkitBackdropFilter: 'blur(5.4px)',
           py: 1,
-          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)',
+          boxShadow: 'none',
         }}
       >
         <Container maxWidth={false}>
@@ -48,7 +47,7 @@ const Navbar = () => {
                   <Typography
                     sx={{
                       fontWeight: 950,
-                      color: '#F0DB4F',
+                      color: '#000',
                       fontSize: { xs: '1rem', md: '1.2rem' },
                       letterSpacing: '-0.04em',
                     }}
@@ -58,7 +57,7 @@ const Navbar = () => {
                   <Typography
                     sx={{
                       fontWeight: 950,
-                      color: 'white',
+                      color: '#000',
                       fontSize: { xs: '1rem', md: '1.2rem' },
                       letterSpacing: '-0.04em',
                     }}
@@ -72,10 +71,10 @@ const Navbar = () => {
             {/* Action Buttons & Mobile Menu Toggle */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <AnimatedButton
-                onClick={() => setIsCommunityModalOpen(true)}
+                onClick={openModal}
                 variant='contained'
-                color='primary'
-                hoverColor='#FFE970'
+                color='secondary'
+                hoverColor='#333'
                 disableElevation
                 sx={{
                   display: 'flex',
@@ -84,8 +83,8 @@ const Navbar = () => {
                   py: { xs: 1, sm: 1.5 },
                   borderRadius: 100,
                   fontSize: { xs: '0.7rem', sm: '1rem' },
-                  bgcolor: '#F0DB4F',
-                  color: 'black',
+                  bgcolor: '#000',
+                  color: '#fff',
                 }}
               >
                 <Stack display='flex' flexDirection='row' alignItems='center'>
@@ -98,10 +97,6 @@ const Navbar = () => {
         </Container>
       </AppBar>
 
-      <CommunityJoinModal
-        open={isCommunityModalOpen}
-        onClose={() => setIsCommunityModalOpen(false)}
-      />
     </>
   );
 };
