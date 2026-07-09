@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { GithubLogo, InstagramLogo, WhatsappLogo, LinkedinLogo } from '@phosphor-icons/react';
+import { GithubLogo, InstagramLogo, WhatsappLogo, LinkedinLogo, XLogo } from '@phosphor-icons/react';
 import Link from 'next/link';
 
 
@@ -25,10 +25,11 @@ const ACCIONES_LINKS = [
 ];
 
 const SOCIAL = [
-  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',     label: 'GitHub' },
-  { Icon: InstagramLogo, href: 'https://instagram.com/jschile',               label: 'Instagram' },
-  { Icon: WhatsappLogo,  href: 'https://chat.whatsapp.com/GXBnfGrTbfvBo8KxOtMOZL?mode=gi_t', label: 'WhatsApp' },
-  { Icon: LinkedinLogo,  href: 'https://linkedin.com/company/jscriptchile',  label: 'LinkedIn' },
+  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',    label: 'GitHub' },
+  { Icon: InstagramLogo, href: 'https://www.instagram.com/javascriptchile/', label: 'Instagram' },
+  { Icon: WhatsappLogo,  href: null,                                          label: 'WhatsApp' },
+  { Icon: LinkedinLogo,  href: 'https://www.linkedin.com/company/javascriptchile/posts/?feedView=all', label: 'LinkedIn' },
+  { Icon: XLogo,         href: 'https://x.com/javascriptchile',                                       label: 'X' },
 ];
 
 const linkSx = {
@@ -149,11 +150,11 @@ const Footer = () => {
               {SOCIAL.map(({ Icon, href, label }) => (
                 <IconButton
                   key={label}
-                  component='a'
-                  href={href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label={`${label} (abre en nueva pestaña)`}
+                  {...(href
+                    ? { component: 'a', href, target: '_blank', rel: 'noopener noreferrer' }
+                    : { onClick: openModal }
+                  )}
+                  aria-label={href ? `${label} (abre en nueva pestaña)` : `Unirse al ${label}`}
                   size='small'
                   sx={{
                     color: COLORS.textPrimary,

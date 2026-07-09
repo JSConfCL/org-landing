@@ -63,7 +63,7 @@ const jsonLd = {
   description:
     'Comunidad de desarrolladores JavaScript en Chile. Organizamos meetups, workshops y conferencias desde 2013.',
   sameAs: [
-    'https://www.instagram.com/jschile/',
+    'https://www.instagram.com/javascriptchile/',
     'https://www.linkedin.com/company/jschile/',
     'https://github.com/jschile',
   ],
