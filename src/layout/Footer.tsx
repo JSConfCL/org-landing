@@ -1,4 +1,6 @@
 'use client';
+import { jersey10 } from '@/lib/fonts';
+import { EASE, COLORS } from '@/lib/tokens';
 
 import Box from '@mui/material/Box';
 import { useCommunityModal } from '@/providers/CommunityModalProvider';
@@ -6,19 +8,15 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { Jersey_10 } from 'next/font/google';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { GithubLogo, InstagramLogo, WhatsappLogo, LinkedinLogo } from '@phosphor-icons/react';
+import Link from 'next/link';
 
-const jersey10 = Jersey_10({ weight: '400', subsets: ['latin'], display: 'swap' });
 
 const NAV_LINKS = [
-  { label: 'Nuestra historia', href: '#historia' },
-  { label: 'Speakers', href: '#speakers' },
   { label: 'Eventos', href: '#eventos' },
+  { label: 'Nuestra historia', href: '#historia' },
   { label: 'Nuestros valores', href: '#valores' },
+  { label: 'Speakers', href: '#speakers' },
   { label: 'Staff', href: '#staff' },
 ];
 
@@ -27,17 +25,17 @@ const ACCIONES_LINKS = [
 ];
 
 const SOCIAL = [
-  { Icon: TwitterIcon,   href: 'https://twitter.com/jscriptchile',           label: 'Twitter' },
-  { Icon: InstagramIcon, href: 'https://instagram.com/jschile',               label: 'Instagram' },
-  { Icon: WhatsAppIcon,  href: 'https://chat.whatsapp.com/GXBnfGrTbfvBo8KxOtMOZL?mode=gi_t', label: 'WhatsApp' },
-  { Icon: LinkedInIcon,  href: 'https://linkedin.com/company/jscriptchile',  label: 'LinkedIn' },
+  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',     label: 'GitHub' },
+  { Icon: InstagramLogo, href: 'https://instagram.com/jschile',               label: 'Instagram' },
+  { Icon: WhatsappLogo,  href: 'https://chat.whatsapp.com/GXBnfGrTbfvBo8KxOtMOZL?mode=gi_t', label: 'WhatsApp' },
+  { Icon: LinkedinLogo,  href: 'https://linkedin.com/company/jscriptchile',  label: 'LinkedIn' },
 ];
 
 const linkSx = {
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '0.95rem',
-  color: '#1A1A1A',
+  color: COLORS.textPrimary,
   textDecoration: 'none',
   display: 'block',
   mb: 1.5,
@@ -50,8 +48,8 @@ const colTitle = (text: string) => (
       fontFamily: jersey10.style.fontFamily,
       fontWeight: 400,
       fontSize: '1.35rem',
-      color: '#1A1A1A',
-      mb: 2.5,
+      color: COLORS.textPrimary,
+      mb: 1,
     }}
   >
     {text}
@@ -75,10 +73,11 @@ const Footer = () => {
       id='contacto'
       component='footer'
       sx={{
-        backgroundImage: "url(/assets/hero-bg.png)",
+        backgroundImage: "url(/assets/Bg-footer.webp)",
         backgroundSize: 'cover',
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
+        pt: { xs: '75%', sm: '35%' },
       }}
     >
       {/* ── Contenido principal ── */}
@@ -87,22 +86,27 @@ const Footer = () => {
 
           {/* Logo */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Box
-              component='img'
-              src='/assets/javascript-chile-logo.png'
-              alt='JavaScript Chile'
-              sx={{ width: { xs: 160, md: 220 }, height: 'auto', objectFit: 'contain' }}
-            />
+            <Link href='/' aria-label='Ir al inicio' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <Box
+                component='img'
+                src='/assets/logo-cljs.svg'
+                alt='JSChile'
+                sx={{ width: { xs: 120, md: 160 }, height: 'auto', objectFit: 'contain', display: 'block' }}
+              />
+            </Link>
           </Grid>
 
-          {/* Title */}
+          {/* Navegación */}
           <Grid size={{ xs: 6, md: 2 }}>
-            {colTitle('Title')}
-            {NAV_LINKS.map((l) => (
-              <Box key={l.label} component='a' href={l.href} sx={linkSx}>
-                {l.label}
-              </Box>
-            ))}
+            {colTitle('Navegación')}
+            {/* WCAG AA: nav landmark para los enlaces del footer */}
+            <Box component='nav' aria-label='Secciones del sitio'>
+              {NAV_LINKS.map((l) => (
+                <Box key={l.label} component='a' href={l.href} sx={linkSx}>
+                  {l.label}
+                </Box>
+              ))}
+            </Box>
           </Grid>
 
           {/* Acciones */}
@@ -128,15 +132,20 @@ const Footer = () => {
           {/* Contáctanos */}
           <Grid size={{ xs: 6, md: 2 }}>
             {colTitle('Contáctanos')}
-            <Box component='button' onClick={openModal} sx={buttonLinkSx}>
-              Unirme al Whatsapp
+            <Box
+              component='a'
+              href='mailto:contacto@jschile.org'
+              sx={linkSx}
+            >
+              contacto@jschile.org
             </Box>
           </Grid>
 
           {/* Síguenos */}
           <Grid size={{ xs: 6, md: 2 }}>
             {colTitle('Síguenos')}
-            <Box sx={{ display: 'flex', gap: 0.5 }}>
+            {/* WCAG AA: aria-label descriptivo incluye "(abre en nueva pestaña)" */}
+            <Box component='nav' aria-label='Redes sociales' sx={{ display: 'flex', gap: 0.5 }}>
               {SOCIAL.map(({ Icon, href, label }) => (
                 <IconButton
                   key={label}
@@ -144,16 +153,16 @@ const Footer = () => {
                   href={href}
                   target='_blank'
                   rel='noopener noreferrer'
-                  aria-label={label}
+                  aria-label={`${label} (abre en nueva pestaña)`}
                   size='small'
                   sx={{
-                    color: '#1A1A1A',
+                    color: COLORS.textPrimary,
                     bgcolor: 'rgba(0,0,0,0.08)',
                     borderRadius: '8px',
                     '&:hover': { bgcolor: 'rgba(0,0,0,0.15)' },
                   }}
                 >
-                  <Icon sx={{ fontSize: 20 }} />
+                  <Icon size={20} weight='fill' aria-hidden />
                 </IconButton>
               ))}
             </Box>
@@ -175,11 +184,20 @@ const Footer = () => {
           gap: 1,
         }}
       >
-        <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: '#1A1A1A' }}>
-          Comunidad de JavaScript en Chile • Desde 2013
+        <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: COLORS.textPrimary }}>
+          Comunidad JSChile • Desde 2013
         </Typography>
-        <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: '#1A1A1A' }}>
-          © 2026 JavaScript Chile
+        <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: COLORS.textPrimary }}>
+          © 2026 JSChile — Hecho con 🖤 por{' '}
+          <Box
+            component='a'
+            href='https://otroanguloweb.cl/'
+            target='_blank'
+            rel='noopener noreferrer'
+            sx={{ color: COLORS.textPrimary, textDecoration: 'underline', '&:hover': { opacity: 0.7 } }}
+          >
+            Erika Pinedo
+          </Box>
         </Typography>
       </Box>
     </Box>

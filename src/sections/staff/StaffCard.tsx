@@ -1,4 +1,5 @@
 'use client';
+import { COLORS } from '@/lib/tokens';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -26,11 +27,16 @@ export const StaffCard: React.FC<StaffCardProps> = ({
 
   return (
     <Box
+      role='button'
+      tabIndex={0}
+      aria-label={`Ver perfil de ${staff.fullName}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
       sx={{
         cursor: 'pointer',
+        '&:focus-visible': { outline: `3px solid ${COLORS.yellow}`, borderRadius: '12px' },
       }}
     >
       <Stack
@@ -62,18 +68,28 @@ export const StaffCard: React.FC<StaffCardProps> = ({
               height: imageSize,
               borderRadius: '12px',
               border: '3px solid',
-              borderColor: isHovered ? '#F0DB4F' : 'primary.main',
+              borderColor: isHovered ? COLORS.yellow : COLORS.black,
               transition: 'all 0.3s ease',
               position: 'relative',
               zIndex: 1,
               overflow: 'hidden',
-              backgroundImage: `url(${staff.imageUrl})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter:
-                isExStaff && !isHovered ? 'grayscale(100%)' : 'grayscale(0%)',
             }}
-          />
+          >
+            <Box
+              component='img'
+              src={staff.imageUrl}
+              alt={`Foto de ${staff.fullName}, ${staff.role}`}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                display: 'block',
+                filter: isExStaff && !isHovered ? 'grayscale(100%)' : 'grayscale(0%)',
+                transition: 'filter 0.3s ease',
+              }}
+            />
+          </Box>
         </motion.div>
 
         <Typography

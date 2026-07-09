@@ -2,8 +2,9 @@
 
 import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
+import { EASE } from '@/lib/tokens';
 
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
+const EASE_OUT_EXPO = EASE;
 
 /* ── Fade + slide hacia arriba ── */
 export const FadeUp = ({

@@ -1,16 +1,15 @@
 'use client';
+import { jersey10 } from '@/lib/fonts';
+import { EASE, COLORS } from '@/lib/tokens';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { Jersey_10 } from 'next/font/google';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from '@/components/AnimatedButton';
 import { useCommunityModal } from '@/providers/CommunityModalProvider';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { WhatsappLogo } from '@phosphor-icons/react';
 import { Stack } from '@mui/material';
 
-const jersey10 = Jersey_10({ weight: '400', subsets: ['latin'], display: 'swap' });
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 export const WhatsAppCTA = () => {
   const { openModal } = useCommunityModal();
@@ -20,13 +19,18 @@ export const WhatsAppCTA = () => {
       <Box
         component='section'
         sx={{
-          background: 'linear-gradient(105deg, #EFD000 0%, #E8A000 100%)',
+          backgroundImage: 'url(/assets/banner-inivitation-whatsapp.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          minHeight: { xs: '130vw', sm: '55vw', md: '45vw' },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           textAlign: 'center',
-          py: { xs: 8, md: 10 },
+          pt: { xs: 5, md: 8 },
+          pb: { xs: 8, md: 10 },
           px: { xs: 4, md: 8 },
         }}
       >
@@ -37,19 +41,8 @@ export const WhatsAppCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <Box
-            sx={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              bgcolor: '#1A1A1A',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              mb: 3,
-            }}
-          >
-            <WhatsAppIcon sx={{ color: '#E8A000', fontSize: '2rem' }} />
+          <Box sx={{ mb: 1 }}>
+            <WhatsappLogo size={64} weight='fill' color={COLORS.black} />
           </Box>
         </motion.div>
 
@@ -65,9 +58,9 @@ export const WhatsAppCTA = () => {
             sx={{
               fontFamily: jersey10.style.fontFamily,
               fontWeight: 400,
-              fontSize: { xs: '2.2rem', md: '3.5rem' },
+              fontSize: { xs: '2.8rem', sm: '3.8rem', md: '5rem' },
               lineHeight: 1.1,
-              color: '#1A1A1A',
+              color: COLORS.textPrimary,
               mb: 4,
             }}
           >
@@ -81,25 +74,23 @@ export const WhatsAppCTA = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ type: 'spring', damping: 14, stiffness: 120, delay: 0.35 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           <AnimatedButton
             variant='contained'
             color='secondary'
             onClick={openModal}
-            hoverColor='#333'
+            hoverColor={COLORS.charcoal}
             sx={{
-              px: 5,
-              py: 1.8,
+              px: 4,
+              py: 1.6,
               fontSize: '1rem',
-              fontWeight: 600,
-              bgcolor: '#1A1A1A',
+              fontWeight: 700,
+              bgcolor: COLORS.black,
               color: '#fff',
             }}
           >
             <Stack direction='row' alignItems='center' spacing={1}>
-              <WhatsAppIcon />
+              <WhatsappLogo size={20} weight='fill' />
               <span>Unirme al WhatsApp</span>
             </Stack>
           </AnimatedButton>

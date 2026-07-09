@@ -1,66 +1,93 @@
 'use client';
+import { jersey10 } from '@/lib/fonts';
+import { EASE, COLORS } from '@/lib/tokens';
 
-import { Jersey_10 } from 'next/font/google';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from '@/components/AnimatedButton';
 import { useCommunityModal } from '@/providers/CommunityModalProvider';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { WhatsappLogo, CaretDown } from '@phosphor-icons/react';
 
-const jersey10 = Jersey_10({ weight: '400', subsets: ['latin'], display: 'swap' });
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+const FINAL_TEXT = 'Más que eventos.\nUna red de devs que se apoyan';
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, filter: 'blur(20px)', y: 8 },
+  visible: {
+    opacity: 1,
+    filter: 'blur(0px)',
+    y: 0,
+    transition: { duration: 0.7, ease: EASE },
+  },
+};
 
 export const HeroInfo = () => {
   const { openModal } = useCommunityModal();
+  const [showContent, setShowContent] = useState(false);
+
+  const lines = FINAL_TEXT.split('\n');
 
   return (
     <Box sx={{ textAlign: 'center', maxWidth: '1200px', mx: 'auto' }}>
+
+      {/* ── Title blur-reveal word by word ── */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: EASE }}
+        variants={containerVariants}
+        initial='hidden'
+        animate='visible'
+        onAnimationComplete={() => setShowContent(true)}
       >
         <Typography
           component='h1'
           sx={{
             fontFamily: jersey10.style.fontFamily,
-            fontStyle: 'normal',
             fontWeight: 400,
-            fontSize: '6.25rem',
-            lineHeight: '76%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            fontSize: { xs: '3.8rem', sm: '5rem', md: '6.25rem' },
+            lineHeight: '82%',
+            color: COLORS.black,
+            mb: '20px',
             textAlign: 'center',
-            color: '#000',
-            mb: '10px',
           }}
         >
-          Más que eventos.
-          <br />
-          Una red de devs que se apoyan
+          {lines.map((line, li) => (
+            <Box key={li} component='span' sx={{ display: 'block' }}>
+              {line.split(' ').map((word, wi) => (
+                <motion.span
+                  key={`${li}-${wi}`}
+                  variants={wordVariants}
+                  style={{ display: 'inline-block', margin: '0 0.14em' }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </Box>
+          ))}
         </Typography>
       </motion.div>
 
+      {/* ── Subtitle + buttons fade in after title ── */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.7, ease: EASE }}
       >
         <Typography
           variant='body1'
           sx={{
             mb: 6,
             fontFamily: 'Inter',
-            fontStyle: 'normal',
             fontWeight: 400,
-            fontSize: '1.25rem',
+            fontSize: { xs: '1rem', md: '1.25rem' },
             lineHeight: '109%',
-            color: '#1A1A1A',
+            color: COLORS.textPrimary,
             maxWidth: '900px',
             mx: 'auto',
           }}
@@ -69,48 +96,38 @@ export const HeroInfo = () => {
           Organizamos meetups, workshops e iniciativas para compartir conocimiento,
           conectar profesionales y construir el futuro del desarrollo en Chile.
         </Typography>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.45, ease: EASE }}
-      >
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={2}
           justifyContent='center'
           alignItems='center'
         >
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <AnimatedButton
-              variant='contained'
-              color='secondary'
-              href='#comunidad'
-              hoverColor='#F0DB4F'
-              sx={{ px: 4, py: 1.5, fontSize: '1rem', minWidth: 200 }}
-            >
-              <Stack direction='row' alignItems='center' spacing={1}>
-                <KeyboardArrowDownIcon />
-                <span>Conocer más</span>
-              </Stack>
-            </AnimatedButton>
-          </motion.div>
+          <AnimatedButton
+            variant='contained'
+            color='secondary'
+            href='#comunidad'
+            hoverColor={COLORS.charcoal} hoverTextColor='#fff'
+            sx={{ px: 4, py: 1.5, fontSize: '1rem', minWidth: 200 }}
+          >
+            <Stack direction='row' alignItems='center' spacing={1}>
+              <CaretDown size={20} weight='fill' />
+              <span>Conocer más</span>
+            </Stack>
+          </AnimatedButton>
 
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <AnimatedButton
-              variant='contained'
-              color='secondary'
-              onClick={openModal}
-              hoverColor='#F0DB4F'
-              sx={{ px: 4, py: 1.5, fontSize: '1rem', minWidth: 200 }}
-            >
-              <Stack direction='row' alignItems='center' spacing={1}>
-                <WhatsAppIcon />
-                <span>Unirme al WhatsApp</span>
-              </Stack>
-            </AnimatedButton>
-          </motion.div>
+          <AnimatedButton
+            variant='contained'
+            color='secondary'
+            onClick={openModal}
+            hoverColor={COLORS.charcoal} hoverTextColor='#fff'
+            sx={{ px: 4, py: 1.5, fontSize: '1rem', minWidth: 200 }}
+          >
+            <Stack direction='row' alignItems='center' spacing={1}>
+              <WhatsappLogo size={20} weight='fill' />
+              <span>Unirme al WhatsApp</span>
+            </Stack>
+          </AnimatedButton>
         </Stack>
       </motion.div>
 

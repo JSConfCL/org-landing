@@ -1,19 +1,17 @@
 import Box from '@mui/material/Box';
-import Navbar from '@/layout/Navbar';
 import { HeroInfo } from './HeroInfo';
 
 export const HeroContainer = () => {
   return (
     <Box
       component='section'
-      aria-label='Comunidad JavaScript Chile'
+      aria-label='Comunidad JSChile'
       sx={{
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
       }}
     >
-      <Navbar />
       <Box
         sx={{
           flexGrow: 1,

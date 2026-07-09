@@ -1,6 +1,7 @@
+import { COLORS } from '@/lib/tokens';
 import { CommunityJoinModal } from './CommunityJoinModal';
 import Fab from '@mui/material/Fab';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { WhatsappLogo } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 export const WhatsappFab = () => {
@@ -20,16 +21,16 @@ export const WhatsappFab = () => {
           right: { xs: 16, md: 32 },
           zIndex: 2000,
 
-          bgcolor: '#F0DB4F',
+          bgcolor: COLORS.yellow,
           color: 'black',
           '&:hover': {
-            bgcolor: '#FFE970',
+            bgcolor: COLORS.yellowHover,
             transform: 'scale(1.1)',
           },
           transition: 'all 0.3s ease-in-out',
         }}
       >
-        <WhatsAppIcon />
+        <WhatsappLogo size={24} weight='fill' />
       </Fab>
       <CommunityJoinModal open={isModalOpen} onClose={handleCloseModal} />
     </>

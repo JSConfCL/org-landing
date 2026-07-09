@@ -1,133 +1,209 @@
 'use client';
-
+import { COLORS } from '@/lib/tokens';
+import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
+import { Images } from '@phosphor-icons/react';
+import { AnimatedButton } from '@/components/AnimatedButton';
+import { Stack } from '@mui/material';
+import type { CalEvent } from '@/types/events';
 
-interface LumaEvent {
-  api_id: string;
-  name: string;
-  start_at: string;
-  cover_url?: string;
-  url: string;
-}
+const CARD_WIDTH = 320;
+const IMAGE_SIZE = 116;
+const GAP = 14;
+const ITEM_WIDTH = CARD_WIDTH + GAP;
 
-const PLACEHOLDER_COUNT = 5;
+function EventCard({ event }: { event: CalEvent }) {
+  const date = new Date(event.start).toLocaleDateString('es-CL', {
+    timeZone: 'America/Santiago',
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
 
-const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
-
-function EventCard({ event, index }: { event?: LumaEvent; index: number }) {
-  const formattedDate = event
-    ? new Date(event.start_at).toLocaleDateString('es-CL', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    : null;
-
-  const inner = (
-    <motion.div
-      initial={{ opacity: 0, y: 60, scale: 0.92 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.55, delay: index * 0.1, ease: EASE }}
-      whileHover={event ? { y: -8, transition: { duration: 0.25 } } : {}}
-      style={{
-        flexShrink: 0,
-        width: 'clamp(240px, 30vw, 320px)',
-        borderRadius: '20px',
+  const card = (
+    <Box
+      sx={{
+        width: CARD_WIDTH,
+        height: IMAGE_SIZE,
+        borderRadius: '14px',
         overflow: 'hidden',
-        scrollSnapAlign: 'start',
-        backgroundColor: '#000',
-        textDecoration: 'none',
-        cursor: event ? 'pointer' : 'default',
+        bgcolor: COLORS.oliveDark,
+        flexShrink: 0,
+        display: 'flex',
+        flexDirection: 'row',
+        transition: 'transform 0.2s',
+        '&:hover': { transform: 'scale(1.02)' },
       }}
     >
-      {/* Imagen */}
       <Box
+        role='img'
+        aria-label={`Portada de ${event.title}`}
         sx={{
-          width: '100%',
-          aspectRatio: '4/3',
-          ...(event?.cover_url
-            ? {
-                backgroundImage: `url(${event.cover_url})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }
-            : {
-                backgroundImage: `
-                  linear-gradient(45deg,#d0d0d0 25%,transparent 25%),
-                  linear-gradient(-45deg,#d0d0d0 25%,transparent 25%),
-                  linear-gradient(45deg,transparent 75%,#d0d0d0 75%),
-                  linear-gradient(-45deg,transparent 75%,#d0d0d0 75%)
-                `,
-                backgroundSize: '24px 24px',
-                backgroundPosition: '0 0,0 12px,12px -12px,-12px 0px',
-                backgroundColor: '#e8e8e8',
-              }),
+          width: IMAGE_SIZE,
+          height: IMAGE_SIZE,
+          flexShrink: 0,
+          backgroundImage: event.cover_url
+            ? `url(${event.cover_url})`
+            : 'url(/assets/default.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       />
+      <Box
+        sx={{
+          px: 2,
+          py: 1.5,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          flex: 1,
+          minWidth: 0,
+        }}
+      >
+        <Typography
+          sx={{
+            fontFamily: 'Inter',
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: '#fff',
+            lineHeight: 1.35,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {event.title}
+        </Typography>
 
-      {/* Info */}
-      <Box sx={{ px: 2.5, py: 2, bgcolor: '#000' }}>
-        {event ? (
-          <>
-            <Typography
-              sx={{
-                fontFamily: 'Inter',
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                color: '#fff',
-                mb: 0.5,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {event.name}
-            </Typography>
-            <Typography sx={{ fontFamily: 'Inter', fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' }}>
-              {formattedDate}
-            </Typography>
-          </>
-        ) : (
-          <Box sx={{ height: '52px' }} />
+        <Typography
+          sx={{
+            fontFamily: 'Inter',
+            fontSize: '0.75rem',
+            color: '#fff',
+            textTransform: 'capitalize',
+            mt: 0.5,
+          }}
+        >
+          {date}
+        </Typography>
+
+        {event.location && (
+          <Typography
+            sx={{
+              fontFamily: 'Inter',
+              fontSize: '0.7rem',
+              color: 'rgba(255,255,255,0.75)',
+              mt: 0.5,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {event.location.split(',')[0]}
+          </Typography>
         )}
       </Box>
-    </motion.div>
+    </Box>
   );
 
-  if (!event) return inner;
   return (
-    <a href={event.url} target='_blank' rel='noopener noreferrer' style={{ display: 'contents', textDecoration: 'none' }}>
-      {inner}
+    <a
+      href={event.url}
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label={`Ver evento: ${event.title}, ${date}`}
+      style={{ display: 'contents', textDecoration: 'none' }}
+    >
+      {card}
     </a>
   );
 }
 
-export function PastEventsCarouselClient({ events }: { events: LumaEvent[] }) {
-  const isEmpty = events.length === 0;
+function InfiniteRow({ events, reversed }: { events: CalEvent[]; reversed: boolean }) {
+  const totalWidth = ITEM_WIDTH * events.length;
+  // reversed row moves right (x: -totalWidth → 0), normal moves left (x: 0 → -totalWidth)
+  const x = useMotionValue(reversed ? -totalWidth : 0);
+  const paused = useRef(false);
+  // px per ms to complete one full loop in `events.length * 14` seconds
+  const speed = totalWidth / (events.length * 14 * 1000);
+
+  useAnimationFrame((_, delta) => {
+    if (paused.current) return;
+    let current = x.get();
+    if (reversed) {
+      current += speed * delta;
+      if (current >= 0) current -= totalWidth;
+    } else {
+      current -= speed * delta;
+      if (current <= -totalWidth) current += totalWidth;
+    }
+    x.set(current);
+  });
+
+  const tripled = [...events, ...events, ...events];
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        gap: '16px',
-        overflowX: 'auto',
-        px: { xs: '24px', md: '64px' },
-        pb: 2,
-        scrollSnapType: 'x mandatory',
-        '&::-webkit-scrollbar': { display: 'none' },
-        scrollbarWidth: 'none',
-      }}
-    >
-      {isEmpty
-        ? Array.from({ length: PLACEHOLDER_COUNT }).map((_, i) => (
-            <EventCard key={i} index={i} />
-          ))
-        : events.map((event, i) => (
-            <EventCard key={event.api_id} event={event} index={i} />
-          ))}
+    <Box sx={{ overflow: 'hidden', width: '100%', py: 0.75 }}>
+      <motion.div
+        style={{ display: 'flex', gap: GAP, width: 'fit-content', x }}
+        onMouseEnter={() => { paused.current = true; }}
+        onMouseLeave={() => { paused.current = false; }}
+      >
+        {tripled.map((event, i) => (
+          <EventCard key={`${event.uid}-${i}`} event={event} />
+        ))}
+      </motion.div>
     </Box>
+  );
+}
+
+export function PastEventsCarouselClient({ events }: { events: CalEvent[] }) {
+  const half = Math.ceil(events.length / 2);
+  const row1 = events.slice(0, half);
+  const row2 = events.slice(half);
+
+  return (
+    <>
+      <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+        <InfiniteRow events={row1.length >= 3 ? row1 : events} reversed={false} />
+        <InfiniteRow events={row2.length >= 3 ? row2 : events} reversed={true} />
+
+        <Box
+          aria-hidden='true'
+          sx={{
+            position: 'absolute', top: 0, left: 0, width: 140, height: '100%',
+            background: `linear-gradient(to right, ${COLORS.black}, transparent)`,
+            pointerEvents: 'none', zIndex: 2,
+          }}
+        />
+        <Box
+          aria-hidden='true'
+          sx={{
+            position: 'absolute', top: 0, right: 0, width: 140, height: '100%',
+            background: `linear-gradient(to left, ${COLORS.black}, transparent)`,
+            pointerEvents: 'none', zIndex: 2,
+          }}
+        />
+      </Box>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
+        <AnimatedButton
+          variant='contained'
+          href='https://gallery.jsconf.cl/'
+          target='_blank'
+          rel='noopener noreferrer'
+          hoverColor={COLORS.yellowHover}
+          sx={{ bgcolor: COLORS.yellow, color: COLORS.textPrimary, px: 4, py: 1.75, fontSize: '1rem' }}
+        >
+          <Stack direction='row' alignItems='center' spacing={1.5}>
+            <Images size={20} weight='fill' />
+            <span>Revive los momentos</span>
+          </Stack>
+        </AnimatedButton>
+      </Box>
+    </>
   );
 }

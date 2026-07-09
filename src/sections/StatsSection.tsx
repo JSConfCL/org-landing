@@ -1,12 +1,12 @@
 'use client';
+import { EASE, COLORS } from '@/lib/tokens';
+import { jersey10 } from '@/lib/fonts';
 
 import { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { motion, useInView } from 'framer-motion';
-import { Jersey_10 } from 'next/font/google';
 
-const jersey10 = Jersey_10({ weight: '400', subsets: ['latin'], display: 'swap' });
 
 const BORDER_SUBTLE = '8px solid rgba(220, 215, 200, 0.85)';
 const BORDER_WHITE  = '8px solid rgba(255, 255, 255, 1)';
@@ -44,8 +44,8 @@ const STATS = [
 
 const PHOTOS = [
   {
-    src: '/assets/events/group-crowd.png',
-    alt: 'Asistentes en evento JavaScript Chile',
+    src: '/assets/events/group-crowd.webp',
+    alt: 'Asistentes en evento JSChile',
     border: BORDER_SUBTLE,
     containerSx: {
       transform: 'rotate(-7.27deg)',
@@ -57,7 +57,7 @@ const PHOTOS = [
     delay: 0.1,
   },
   {
-    src: '/assets/events/group-selfie.png',
+    src: '/assets/events/group-selfie.webp',
     alt: 'JSConf Chile — foto grupal',
     border: BORDER_WHITE,
     containerSx: {
@@ -66,10 +66,10 @@ const PHOTOS = [
       width: { xs: 220, sm: 340, md: 480 },
     },
     fromRotate: 8,
-    delay: 0.3,
+    delay: 0.5,
   },
   {
-    src: '/assets/events/group-stage.png',
+    src: '/assets/events/group-stage.webp',
     alt: 'Escenario JSConf Chile',
     border: BORDER_SUBTLE,
     containerSx: {
@@ -79,13 +79,13 @@ const PHOTOS = [
       marginLeft: { xs: '-50px', md: '-100px' },
     },
     fromRotate: 20,
-    delay: 0.1,
+    delay: 0.3,
   },
 ];
 
 export const StatsSection = () => {
   return (
-    <Box component='section' aria-label='Datos de la comunidad' sx={{ pb: { xs: 8, md: 14 } }}>
+    <Box id='comunidad' component='section' aria-label='Datos de la comunidad' sx={{ pb: { xs: 8, md: 14 } }}>
 
       {/* ── Fotos rotadas ── */}
       <Box
@@ -108,7 +108,7 @@ export const StatsSection = () => {
             whileInView={{ opacity: 1, y: 0, rotate: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ type: 'spring', damping: 13, stiffness: 85, delay: photo.delay }}
-            style={{ display: 'flex' }}
+            style={{ display: 'flex', position: 'relative', zIndex: photo.containerSx.zIndex as number }}
           >
             <Box
               sx={{
@@ -146,7 +146,7 @@ export const StatsSection = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
           >
             <Box
               sx={{
@@ -164,7 +164,7 @@ export const StatsSection = () => {
                 sx={{
                   fontFamily: jersey10.style.fontFamily,
                   fontSize: { xs: '1.6rem', md: '2.2rem', lg: '2.8rem' },
-                  color: '#F0DB4F',
+                  color: COLORS.yellow,
                   lineHeight: 1.05,
                 }}
               >
@@ -175,7 +175,7 @@ export const StatsSection = () => {
                 sx={{
                   fontFamily: jersey10.style.fontFamily,
                   fontSize: { xs: '1.5rem', md: '2rem', lg: '2.5rem' },
-                  color: '#F0DB4F',
+                  color: COLORS.yellow,
                   lineHeight: 1.15,
                   mb: 0.5,
                 }}

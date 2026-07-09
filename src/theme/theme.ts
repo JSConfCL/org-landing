@@ -1,4 +1,4 @@
-'use client';
+import { COLORS } from '@/lib/tokens';
 
 import { createTheme } from '@mui/material/styles';
 import { Inter } from 'next/font/google';
@@ -11,40 +11,42 @@ const inter = Inter({
 
 // Brand Palette based on JSChile Logo
 const brand = {
-  50: '#FEFCE8',
-  100: '#FEF9C3',
-  200: '#FEF08A',
-  300: '#FDE047',
-  400: '#FACC15',
-  500: '#ecd51a', // Official JS Yellow (Matches Logo)
-  600: '#EAB308',
-  700: '#CA8A04',
-  800: '#A16207',
-  900: '#713F12',
+  50:  COLORS.yellowHover,
+  100: COLORS.yellowHover,
+  200: COLORS.yellowHover,
+  300: COLORS.yellow,
+  400: COLORS.yellow,
+  500: COLORS.yellow,
+  600: COLORS.yellowMid,
+  700: COLORS.yellowDark,
+  800: COLORS.olive,
+  900: COLORS.oliveDark,
 };
 
 const gray = {
-  50: '#FAFAFA',
+  50:  '#FAFAFA',
   100: '#F5F5F5',
   200: '#EEEEEE',
   300: '#E0E0E0',
   400: '#BDBDBD',
   500: '#9E9E9E',
-  600: '#757575',
-  700: '#616161',
-  800: '#424242',
-  900: '#212121',
+  600: COLORS.gray,
+  700: COLORS.gray,
+  800: COLORS.charcoal,
+  900: COLORS.black,
 };
 
 const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: brand[500], // Yellow
-      contrastText: '#000000',
+      main: brand[500],
+      dark: brand[500],  // keeps bg unchanged on hover — AnimatedButton's span handles it
+      contrastText: COLORS.black,
     },
     secondary: {
-      main: '#000000',
+      main: COLORS.black,
+      dark: COLORS.black,  // same reason
       contrastText: '#FFFFFF',
     },
     background: {
@@ -52,7 +54,7 @@ const theme = createTheme({
       paper: '#FFFFFF',
     },
     text: {
-      primary: '#000000',
+      primary: COLORS.black,
       secondary: gray[600],
     },
   },
@@ -95,6 +97,15 @@ const theme = createTheme({
           overflowX: 'clip',
           WebkitFontSmoothing: 'antialiased',
           MozOsxFontSmoothing: 'grayscale',
+        },
+        /* WCAG AA: detiene animaciones CSS para usuarios con prefers-reduced-motion */
+        '@media (prefers-reduced-motion: reduce)': {
+          '*, *::before, *::after': {
+            animationDuration: '0.01ms !important',
+            animationIterationCount: '1 !important',
+            transitionDuration: '0.01ms !important',
+            scrollBehavior: 'auto !important',
+          },
         },
         a: {
           color: 'inherit',
@@ -141,11 +152,8 @@ const theme = createTheme({
           },
         },
         containedSecondary: {
-          backgroundColor: '#000000',
+          backgroundColor: COLORS.black,
           color: '#FFFFFF',
-          '&:hover': {
-            backgroundColor: '#333333',
-          },
         },
       },
     },

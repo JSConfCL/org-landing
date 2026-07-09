@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "fetch-events": "node scripts/fetch-events.mjs",
+    "dev": "npm run fetch-events && next dev",
+    "build": "npm run fetch-events && next build",
     "start": "next start",
-    "generate": "next build",
+    "generate": "npm run build",
     "prestart": "npm run generate",
-    "predev": "npm run generate",
     "typecheck": "tsc",
     "lint": "npx eslint --cache src",
     "lint:fix": "npx eslint --cache src --fix",
@@ -26,6 +26,7 @@
     "@mui/icons-material": "^7.3.8",
     "@mui/material": "^7.3.8",
     "@mui/material-nextjs": "^7.3.8",
+    "@phosphor-icons/react": "^2.1.10",
     "framer-motion": "^12.34.3",
     "next": "16.1.6",
     "react": "19.2.3",
@@ -40,6 +41,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "node-ical": "^0.26.1",
     "typescript": "^5"
   }
 }
