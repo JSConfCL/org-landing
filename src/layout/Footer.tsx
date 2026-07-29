@@ -186,7 +186,7 @@ const Footer = () => {
         }}
       >
         <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: COLORS.textPrimary }}>
-          Comunidad JSChile • Desde 2013
+          Comunidad JSChile • Desde 2015
         </Typography>
         <Typography sx={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '0.9rem', color: COLORS.textPrimary }}>
           © 2026 JSChile — Hecho con 🖤 por{' '}

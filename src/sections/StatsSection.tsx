@@ -36,10 +36,10 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 }
 
 const STATS = [
-  { prefix: '+', target: 120, label: 'Eventos', sub: 'desde 2013' },
-  { prefix: '+', target: 4800, label: 'Asistentes', sub: 'desde 2013' },
-  { prefix: '+', target: 200, label: 'Speakers', sub: 'desde 2013' },
-  { prefix: '+', target: 1500, suffix: ' en', label: 'WhatsApp', sub: 'desde 2013' },
+  { prefix: '+', target: 50, label: 'Eventos', sub: '' },
+  { prefix: '+', target: 4800, label: 'Asistentes', sub: '' },
+  { prefix: '+', target: 100, label: 'Speakers', sub: '' },
+  { prefix: '+', target: 800, suffix: ' en', label: 'WhatsApp', sub: '' },
 ];
 
 const PHOTOS = [

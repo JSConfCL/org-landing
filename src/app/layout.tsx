@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'JSChile | Comunidad de Desarrolladores JavaScript en Chile',
   description:
-    'JSChile: comunidad de devs en Chile desde 2013. Meetups, workshops y conferencias para conectar, aprender y crecer. +120 eventos, +4.800 asistentes, +200 speakers. ¡Únete gratis!',
+    'JSChile: comunidad de devs en Chile desde 2015. Meetups, workshops y conferencias para conectar, aprender y crecer. +50 eventos, +100 speakers, +800 en WhatsApp. ¡Únete gratis!',
   applicationName: 'JSChile',
   keywords: [
     'javascript chile',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'JSChile | Comunidad de Desarrolladores JavaScript en Chile',
     description:
-      'La comunidad de devs JavaScript más grande de Chile. Desde 2013: +120 eventos, +4.800 asistentes, +200 speakers. ¡Únete gratis!',
+      'La comunidad de devs JavaScript más grande de Chile. +50 eventos, +100 speakers, +800 en WhatsApp. ¡Únete gratis!',
     url: 'https://jschile.org/',
     siteName: 'JSChile',
     locale: 'es_CL',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: '/assets/OG.png',
         width: 1200,
         height: 630,
-        alt: 'JSChile — Comunidad de desarrolladores JavaScript desde 2013',
+        alt: 'JSChile — Comunidad de desarrolladores JavaScript desde 2015',
       },
     ],
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JSChile | Comunidad de Desarrolladores JavaScript en Chile',
     description:
-      'La comunidad de devs JavaScript más grande de Chile. Desde 2013: +120 eventos, +4.800 asistentes, +200 speakers. ¡Únete gratis!',
+      'La comunidad de devs JavaScript más grande de Chile. +50 eventos, +100 speakers, +800 en WhatsApp. ¡Únete gratis!',
     images: ['/assets/OG.png'],
   },
 };

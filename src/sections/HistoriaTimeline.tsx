@@ -13,35 +13,34 @@ import { Star, RocketLaunch } from '@phosphor-icons/react';
 
 const MILESTONES = [
   {
-    year: '2013',
-    title: 'El Inicio',
+    year: '2015',
+    title: 'El Primer Meetup',
     description:
-      'Nace la comunidad de JSChile como un pequeño grupo de entusiastas buscando compartir conocimientos y experiencias con esta tecnología web emergente.',
+      'El 3 de diciembre de 2015, Felipe Torres y Fernando Larrañaga organizan el primer meetup en Grupon, donde trabajaban. La comunidad nació como el "Meetup de JS de Grupon".',
     isLast: false,
-    // Scroll threshold at which this node activates (0 → 1)
     t: 0,
   },
   {
     year: '2016',
-    title: 'Los Primeros Meetups',
+    title: 'La Fundación Oficial',
     description:
-      'Se realizan los primeros meetups regulares en Santiago, conectando a la comunidad developer con charlas técnicas de alto nivel y networking.',
+      'El 17 de octubre de 2016 la comunidad se funda oficialmente. Se suman nuevas personas como Luis Porra, y la comunidad comienza a crecer con meetups regulares en Santiago.',
     isLast: false,
     t: 0.2,
   },
   {
     year: '2018',
-    title: 'La Expansión',
+    title: 'Burger JS y NodeSchool',
     description:
-      'Speakers internacionales se suman a los eventos y la comunidad crece exponencialmente, llegando a cientos de asistentes por encuentro.',
+      'La comunidad se expande con eventos como Burger JS y NodeSchool, conectando a developers de todo Chile. Nuevas personas se suman a organizar y la energía está en su punto más alto.',
     isLast: false,
     t: 0.38,
   },
   {
-    year: '2023',
-    title: 'La Consolidación',
+    year: '2021',
+    title: 'Surge un nuevo nombre',
     description:
-      'JSChile se consolida como la comunidad tech más activa del país, con eventos de clase mundial y miles de miembros activos.',
+      'A finales de 2020 e inicios de 2021 la comunidad es renombrada a JS Chile, abriendo una nueva etapa más abierta, descentralizada y orientada a toda la comunidad JavaScript del país.',
     isLast: false,
     t: 0.58,
   },
