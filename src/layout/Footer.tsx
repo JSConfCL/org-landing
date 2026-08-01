@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailIcon from '@mui/icons-material/Mail';
@@ -81,6 +82,16 @@ const Footer = () => {
           sx={{ color: '#000' }}
         >
           <LinkedInIcon sx={{ fontSize: 18 }} />
+        </IconButton>
+        <IconButton
+          size='small'
+          href='https://www.instagram.com/javascriptchile/'
+          target='_blank'
+          rel='noopener noreferrer'
+          component='a'
+          sx={{ color: '#000' }}
+        >
+          <InstagramIcon sx={{ fontSize: 18 }} />
         </IconButton>
         <IconButton
           size='small'
