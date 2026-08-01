@@ -1,13 +1,12 @@
+import { COLORS } from '@/lib/tokens';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import BoltIcon from '@mui/icons-material/Bolt';
 import { AnimatedButton } from '@/components/AnimatedButton';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Stack } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Lightning, CalendarDots, Heart } from '@phosphor-icons/react';
 
 export const HeroNextEvent = () => {
   return (
@@ -24,13 +23,13 @@ export const HeroNextEvent = () => {
           variant='h5'
           sx={{
             fontWeight: 800,
-            color: '#000',
+            color: COLORS.black,
             gap: 1,
             letterSpacing: '0.1em',
           }}
         >
           <Box component='span'>
-            <BoltIcon sx={{ color: 'primary.main', fontSize: '2rem' }} />
+            <Lightning size={32} weight='fill' color={COLORS.yellow} />
           </Box>
           PRÓXIMOS EVENTOS
         </Typography>
@@ -47,9 +46,7 @@ export const HeroNextEvent = () => {
           ¿Listo para aprender, conectar y crecer? Descubre nuestros próximos
           eventos y súmate a la comunidad
           <Box component='span'>
-            <FavoriteIcon
-              sx={{ color: 'primary.main', fontSize: '1.5rem', pt: 1 }}
-            />
+            <Heart size={24} weight='fill' color={COLORS.yellow} />
           </Box>
         </Typography>
       </CardContent>
@@ -62,7 +59,7 @@ export const HeroNextEvent = () => {
           target='_blank'
         >
           <Stack display='flex' flexDirection='row' alignItems='center'>
-            <CalendarMonthIcon sx={{ mr: 1 }} />
+            <CalendarDots size={20} weight='fill' style={{ marginRight: 8 }} />
             Ver próximos eventos
           </Stack>
         </AnimatedButton>

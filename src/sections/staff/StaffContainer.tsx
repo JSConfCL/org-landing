@@ -1,13 +1,15 @@
 'use client';
+import { COLORS } from '@/lib/tokens';
+import { jersey10 } from '@/lib/fonts';
 
 import React, { useState } from 'react';
 import { Box, Container, Typography, Grid, Stack } from '@mui/material';
 import { DATA_STAFF, StaffMember } from '@/data/data_staff';
 import StaffModal from './StaffModal';
 
-import StarIcon from '@mui/icons-material/Star';
-import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
+import { Star, SquaresFour } from '@phosphor-icons/react';
 import { StaffCarousel } from './StaffCarousel';
+
 
 const StaffContainer: React.FC = () => {
   const [selectedStaff, setSelectedStaff] = useState<StaffMember | null>(null);
@@ -27,12 +29,12 @@ const StaffContainer: React.FC = () => {
   const exStaff = DATA_STAFF.filter((staff) => staff.isExStaff);
 
   return (
-    <Container maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 2 }}>
+    <Container id='staff' maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, py: { xs: 10, md: 16 } }}>
       <Grid container spacing={4}>
         <Grid size={12}>
           <Box
             sx={{
-              bgcolor: 'white',
+              bgcolor: COLORS.yellow,
               borderRadius: '32px',
               py: { xs: 3, md: 4 },
               px: { xs: 1, md: 2 },
@@ -48,13 +50,11 @@ const StaffContainer: React.FC = () => {
                 spacing={1}
                 sx={{ mb: 1 }}
               >
-                <StarIcon sx={{ color: 'primary.main', fontSize: '2rem' }} />
+                <Star size={32} weight='fill' color={COLORS.black} />
 
                 <Typography
-                  variant='h5'
                   component='h3'
-                  fontWeight='bold'
-                  sx={{ color: 'black' }}
+                  sx={{ fontFamily: jersey10.style.fontFamily, fontWeight: 400, fontSize: '3.125rem', color: 'black' }}
                 >
                   Staff 2026
                 </Typography>
@@ -75,16 +75,9 @@ const StaffContainer: React.FC = () => {
                 spacing={1}
                 sx={{ mb: 1 }}
               >
-                <CalendarViewMonthIcon
-                  sx={{ color: 'primary.main', fontSize: '2rem' }}
-                />
-
                 <Typography
-                  variant='h5'
                   component='h3'
-                  fontWeight='bold'
-                  textAlign='center'
-                  sx={{ mb: 1, color: 'black' }}
+                  sx={{ fontFamily: jersey10.style.fontFamily, fontWeight: 400, fontSize: '1.5rem', mb: 1, color: 'black' }}
                 >
                   2023 al 2025
                 </Typography>

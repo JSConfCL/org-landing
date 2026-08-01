@@ -1,4 +1,5 @@
 'use client';
+import { COLORS } from '@/lib/tokens';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -126,7 +127,7 @@ const MarqueeRow = ({
               px: 3,
               py: 1.5,
               mx: 1, // Use mx for consistent spacing instead of gap
-              bgcolor: member.relevant ? '#F0DB4F' : '#F5F5F5',
+              bgcolor: member.relevant ? COLORS.yellow : COLORS.graySubtle,
               borderRadius: 100,
               fontWeight: 800,
               fontSize: '0.9rem',
@@ -173,7 +174,7 @@ const HomeHallOfFame = () => {
             </Typography>
             <Typography
               sx={{
-                color: '#666',
+                color: COLORS.gray,
                 fontWeight: 600,
                 fontSize: '1.2rem',
                 mb: 8,
@@ -192,7 +193,7 @@ const HomeHallOfFame = () => {
               sx={{
                 textAlign: 'center',
                 mt: 8,
-                color: '#AAA',
+                color: COLORS.gray,
                 fontWeight: 700,
                 fontSize: '0.9rem',
                 display: 'flex',

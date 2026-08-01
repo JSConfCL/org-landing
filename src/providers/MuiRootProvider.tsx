@@ -1,15 +1,16 @@
 'use client';
 
+import { COLORS } from '@/lib/tokens';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '@/theme/theme';
-import Navbar from '@/layout/Navbar';
 import Footer from '@/layout/Footer';
 import Box from '@mui/material/Box';
-import { StarsBackground } from '@/components/StarsBackground';
 
 import { WhatsappFab } from '@/components/WhatsappFab';
+import { CommunityModalProvider } from '@/providers/CommunityModalProvider';
+import Navbar from '@/layout/Navbar';
 
 export default function MuiRootProvider({
   children,
@@ -20,28 +21,27 @@ export default function MuiRootProvider({
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100vh',
-            position: 'relative',
-            bgcolor: '#0B0B0B',
-            zIndex: 0,
-          }}
-        >
-          <StarsBackground />
-
+        <CommunityModalProvider>
           <Navbar />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh',
+              position: 'relative',
+              bgcolor: COLORS.black,
+              zIndex: 0,
+            }}
+          >
+            <Box sx={{ flexGrow: 1, position: 'relative', zIndex: 1 }}>
+              {children}
+            </Box>
 
-          <Box sx={{ flexGrow: 1, py: 4, position: 'relative', zIndex: 1 }}>
-            {children}
+            <Footer />
+
+            <WhatsappFab />
           </Box>
-
-          <Footer />
-
-          <WhatsappFab />
-        </Box>
+        </CommunityModalProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>
   );

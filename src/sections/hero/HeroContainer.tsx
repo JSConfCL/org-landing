@@ -1,19 +1,29 @@
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import { HeroInfo } from './HeroInfo';
-import { HeroNextEvent } from './HeroNextEvent';
 
 export const HeroContainer = () => {
   return (
-    <Container maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 4 }}>
-      <Grid container spacing={4}>
-        <Grid size={{ xs: 12, lg: 8 }} sx={{ minHeight: '500px' }}>
-          <HeroInfo />
-        </Grid>
-        <Grid size={{ xs: 12, lg: 4 }}>
-          <HeroNextEvent />
-        </Grid>
-      </Grid>
-    </Container>
+    <Box
+      component='section'
+      aria-label='Comunidad JSChile'
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          px: { xs: 3, md: 8 },
+          py: { xs: 8, md: 10 },
+        }}
+      >
+        <HeroInfo />
+      </Box>
+    </Box>
   );
 };
