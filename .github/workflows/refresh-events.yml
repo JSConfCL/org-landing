@@ -2,8 +2,8 @@ name: Refresh Luma Events
 
 on:
   schedule:
-    # Every 30 minutes
-    - cron: '*/30 * * * *'
+    # Once a day at noon UTC (9 AM Chile time)
+    - cron: '0 12 * * *'
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
@@ -28,14 +28,17 @@ jobs:
       - name: Fetch events from Luma iCal
         run: node scripts/fetch-events.mjs
 
-      - name: Commit updated events.json if changed
+      - name: Fetch speakers from Google Sheets
+        run: node scripts/fetch-speakers.mjs
+
+      - name: Commit updated data if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/events.json scripts/og-cache.json
+          git add public/events.json scripts/og-cache.json public/speakers.json
           if git diff --staged --quiet; then
-            echo "No changes to events.json — skipping commit."
+            echo "No changes — skipping commit."
           else
-            git commit -m "chore: refresh Luma events [skip ci]"
+            git commit -m "chore: refresh events and speakers"
             git push
           fi

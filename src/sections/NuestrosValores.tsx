@@ -44,11 +44,12 @@ export const NuestrosValores = () => {
               <Box
                 sx={{
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  flexWrap: 'wrap',
-                  gap: 3,
+                  alignItems: { xs: 'center', md: 'center' },
+                  justifyContent: { xs: 'center', md: 'space-between' },
+                  flexDirection: { xs: 'column', md: 'row' },
+                  gap: { xs: 2, md: 3 },
                   mb: { xs: 3, md: 3 },
+                  textAlign: { xs: 'center', md: 'left' },
                 }}
               >
                 <Typography
@@ -74,9 +75,10 @@ export const NuestrosValores = () => {
                     color: COLORS.black,
                     px: 4,
                     py: 1.6,
-                    fontSize: '1rem',
+                    fontSize: { xs: '0.9rem', md: '1rem' },
                     fontWeight: 700,
-                    whiteSpace: 'nowrap',
+                    textAlign: 'center',
+                    lineHeight: 1.3,
                   }}
                 >
                   <Stack direction='row' alignItems='center' spacing={1.5}>
@@ -103,6 +105,7 @@ export const NuestrosValores = () => {
                   color: 'rgba(255,255,255,0.8)',
                   lineHeight: 1.75,
                   mb: 3,
+                  textAlign: { xs: 'center', md: 'left' },
                 }}
               >
                 Queremos que cada evento sea un espacio seguro y libre de acoso{' '}
@@ -122,6 +125,7 @@ export const NuestrosValores = () => {
                   color: 'rgba(255,255,255,0.8)',
                   lineHeight: 1.75,
                   mb: 3,
+                  textAlign: { xs: 'center', md: 'left' },
                 }}
               >
                 <Box component='strong' sx={{ color: '#fff' }}>
@@ -138,6 +142,7 @@ export const NuestrosValores = () => {
                   fontSize: { xs: '1rem', md: '1.05rem' },
                   color: 'rgba(255,255,255,0.8)',
                   lineHeight: 1.75,
+                  textAlign: { xs: 'center', md: 'left' },
                 }}
               >
                 ¿Viste o viviste algo así? Acércate a cualquier persona del staff (las

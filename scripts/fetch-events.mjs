@@ -48,7 +48,24 @@ async function fetchOgImage(url, cache) {
     });
     const html = await res.text();
 
-    // og:image may appear as `content="..."` or `content='...'`
+    // Priority 1: find the actual event cover from the page HTML.
+    // Luma renders the square/portrait cover via srcset using /uploads/ paths.
+    const uploadMatch = html.match(/\/uploads\/([a-z0-9]+\/[a-zA-Z0-9_-]+\.[a-z]+)/);
+    if (uploadMatch) {
+      const coverUrl = `https://images.lumacdn.com/uploads/${uploadMatch[1]}`;
+      cache[url] = coverUrl;
+      return coverUrl;
+    }
+
+    // Priority 2: event-covers path with extension (older events)
+    const coversMatch = html.match(/\/event-covers\/([a-z0-9]+\/[a-zA-Z0-9_-]+\.[a-z]+)/);
+    if (coversMatch) {
+      const coverUrl = `https://images.lumacdn.com/event-covers/${coversMatch[1]}`;
+      cache[url] = coverUrl;
+      return coverUrl;
+    }
+
+    // Fallback: og:image meta tag
     const match = html.match(/property=["']og:image["'][^>]+content=["']([^"']+)["']/);
     if (!match) {
       cache[url] = null;
@@ -57,7 +74,7 @@ async function fetchOgImage(url, cache) {
 
     const raw = match[1].replace(/&amp;/g, '&');
 
-    // Luma CDN OG image: extract the real event cover from the `img=` param
+    // og.luma.com: extract cover from ?img= param
     if (raw.includes('og.luma.com')) {
       try {
         const parsed = new URL(raw);

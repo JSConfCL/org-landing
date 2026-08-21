@@ -57,6 +57,7 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
                 textTransform: 'uppercase',
                 color: COLORS.yellow,
                 mb: 1.5,
+                textAlign: { xs: 'center', md: 'left' },
               }}
             >
               Próximo evento
@@ -74,6 +75,7 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
                 lineHeight: 0.85,
                 color: '#fff',
                 mb: 2,
+                textAlign: { xs: 'center', md: 'left' },
               }}
             >
               {event.title}
@@ -81,7 +83,7 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
           </motion.div>
 
           <motion.div variants={slideLeft}>
-            <Stack direction='row' alignItems='center' spacing={1} sx={{ mb: shortAddress ? 1 : 3 }}>
+            <Stack direction='row' alignItems='center' justifyContent={{ xs: 'center', md: 'flex-start' }} spacing={1} sx={{ mb: shortAddress ? 1 : 3 }}>
               <CalendarDots size={18} color={COLORS.yellow} weight='fill' aria-hidden='true' />
               <Typography
                 sx={{
@@ -98,7 +100,7 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
 
           {shortAddress && (
             <motion.div variants={slideLeft}>
-              <Stack direction='row' alignItems='center' spacing={1} sx={{ mb: 3 }}>
+              <Stack direction='row' alignItems='center' justifyContent={{ xs: 'center', md: 'flex-start' }} spacing={1} sx={{ mb: 3 }}>
                 <MapPin size={18} color={COLORS.yellow} weight='fill' aria-hidden='true' />
                 <Typography
                   sx={{
@@ -114,7 +116,9 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
           )}
 
           <motion.div variants={slideLeft}>
+            <Box sx={{ width: { xs: '100%', md: 'fit-content' } }}>
             <AnimatedButton
+              fullWidth
               variant='contained'
               href={event.url}
               target='_blank'
@@ -134,6 +138,7 @@ export function NextEventClient({ event, dateLabel, timeLabel, shortAddress, oth
                 <span>Inscribirme GRATIS</span>
               </Stack>
             </AnimatedButton>
+            </Box>
           </motion.div>
 
           {/* Upcoming events after the main one */}
