@@ -1,0 +1,355 @@
+{
+  "generated_at": "2026-08-21T23:40:46.938Z",
+  "speakers": [
+    {
+      "id": "1",
+      "name": "Alonso Cabret",
+      "avatar": "/assets/speakers/alonso-cabret.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/acabret/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "2",
+      "name": "Ana Rangel",
+      "avatar": "/assets/speakers/ana-rangel.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/ux-ana-rangel/",
+      "instagram": "https://www.instagram.com/ux.ana.rangel/?hl=es",
+      "github": "https://github.com/UXCorpRangel",
+      "website": "https://uxanarangel.com/"
+    },
+    {
+      "id": "3",
+      "name": "Andrea Méndez",
+      "avatar": "/assets/speakers/andrea-mendez.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/andreindata/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "4",
+      "name": "Andres Lagos",
+      "avatar": "/assets/speakers/andres-lagos.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/andres-lagos-jara/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "5",
+      "name": "Armando Rivas",
+      "avatar": "/assets/speakers/armando-rivas.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/rivascode/",
+      "instagram": null,
+      "github": "https://github.com/rivascode-dev",
+      "website": "https://rivascode.dev/"
+    },
+    {
+      "id": "6",
+      "name": "Boris Belmar",
+      "avatar": "/assets/speakers/boris-belmar.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/bbelmar/",
+      "instagram": null,
+      "github": null,
+      "website": "dobleb.cl"
+    },
+    {
+      "id": "7",
+      "name": "Camila Hinojosa",
+      "avatar": "/assets/speakers/camila-hinojosa.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/camila-hinojosa-anez/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "8",
+      "name": "Carlos Romero",
+      "avatar": "/assets/speakers/carlos-romero.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/carlos-romero-025364238/",
+      "instagram": "https://www.instagram.com/cxrlosarmando/",
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "9",
+      "name": "Catalina Rodríguez",
+      "avatar": "/assets/speakers/catalina-rodriguez.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/catalina-paz-rodriguez/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "10",
+      "name": "Daniel Leal Bitrán",
+      "avatar": "/assets/speakers/daniel-leal-bitran.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/daniel-leal-bitran/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "11",
+      "name": "Eduardo Escalante",
+      "avatar": "/assets/speakers/eduardo-escalante.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/eduardoescalante/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "12",
+      "name": "Elizabeth Fuentes",
+      "avatar": "/assets/speakers/elizabeth-fuentes.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/lizfue/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "13",
+      "name": "Erasmo Hernández",
+      "avatar": "/assets/speakers/erasmo-hernandez.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/erasmohernandez/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "14",
+      "name": "Erika Pinedo",
+      "avatar": "/assets/speakers/erika-pinedo.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/erika-pinedo-camacho/",
+      "instagram": "https://www.instagram.com/otroanguloweb/",
+      "github": null,
+      "website": "https://otroanguloweb.cl/"
+    },
+    {
+      "id": "15",
+      "name": "Fabián Arismendi",
+      "avatar": "/assets/speakers/fabian-arismendi.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/fabianko/",
+      "instagram": "https://www.instagram.com/fabianko",
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "16",
+      "name": "Felipe Torres",
+      "avatar": "/assets/speakers/felipe-torres.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/fforres/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "17",
+      "name": "Fernando Silva",
+      "avatar": "/assets/speakers/fernando-silva.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/fernando-silvo-t/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "18",
+      "name": "Francisco Cordero",
+      "avatar": "/assets/speakers/francisco-cordero.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/panchocorderos/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "19",
+      "name": "Javiera Bustos",
+      "avatar": "/assets/speakers/javiera-bustos.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/javiera-bustos/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "20",
+      "name": "Joaquín Alonso Castillo Silva",
+      "avatar": "/assets/speakers/joaquin-castillo.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/joaquincastillosilva/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "21",
+      "name": "Juan Irarrazabal",
+      "avatar": "/assets/speakers/juan-irarrazabal.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/jirrazabalt/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "22",
+      "name": "Julissa rodriguez",
+      "avatar": "/assets/speakers/julissa-rodriguez.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/julissarodriguezparco/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "23",
+      "name": "Lenin Martinez",
+      "avatar": "/assets/speakers/lenin-martinez.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/ldmarz/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "24",
+      "name": "Manuel Alba",
+      "avatar": "/assets/speakers/manuel-alba.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/manuel-alba/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "25",
+      "name": "María Francisca Chacana Carrasco",
+      "avatar": "/assets/speakers/maria-francisca-chacana-carrasco.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/mfchacana/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "26",
+      "name": "Marisola Acuña",
+      "avatar": "/assets/speakers/marisola-acuna.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/marisolacuna/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "27",
+      "name": "Meraioth Ulloa",
+      "avatar": "/assets/speakers/meraioth-ulloa.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/meraioth-ulloa/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "28",
+      "name": "Michael Palomino",
+      "avatar": "/assets/speakers/michael-palomino.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/michaelpalomino/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "29",
+      "name": "Nicole Paine",
+      "avatar": "/assets/speakers/nicole-paine.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/nicolepainem/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "30",
+      "name": "Omayra Palma",
+      "avatar": "/assets/speakers/omayra-palma.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/omayra-palma-cede%C3%B1o-193abaa6/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "31",
+      "name": "Piero Divasto",
+      "avatar": "/assets/speakers/piero-divasto.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/pierodivasto/?locale=en",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "32",
+      "name": "Ricardo Castillo",
+      "avatar": "/assets/speakers/ricardo-castillo.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/diruzcode/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "33",
+      "name": "Samuel Angulo",
+      "avatar": "/assets/speakers/samuel-angulo.webp",
+      "showInSection": true,
+      "linkedin": "https://www.linkedin.com/in/samuel-angulo/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "34",
+      "name": "Sebastian Phillips",
+      "avatar": "/assets/speakers/sebastian-phillips.webp",
+      "showInSection": false,
+      "linkedin": "https://www.linkedin.com/in/sebasti%C3%A1nphillipsdelvalle/",
+      "instagram": null,
+      "github": null,
+      "website": null
+    },
+    {
+      "id": "35",
+      "name": "Teobaldo Nicolás González Bilbao",
+      "avatar": null,
+      "showInSection": false,
+      "linkedin": null,
+      "instagram": null,
+      "github": null,
+      "website": null
+    }
+  ]
+}
