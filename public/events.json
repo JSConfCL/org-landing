@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-08-21T22:41:22.330Z",
-  "upcoming": [
+  "generated_at": "2026-09-03T12:09:12.183Z",
+  "upcoming": [],
+  "past": [
     {
       "uid": "evt-1Drl24ZIUPTMxFl@events.lu.ma",
       "title": "Meetup JS Chile x Buk",
@@ -9,10 +10,8 @@
       "location": "Buk - Software de Recursos Humanos, Roger de Flor 2725, Torre 3, piso 16, 7550211 Las Condes, Región Metropolitana, Chile",
       "url": "https://luma.com/uujguueq",
       "cover_url": "https://images.lumacdn.com/uploads/7z/65f6ccee-a12b-45cf-9edc-6e01d858a8ea.jpg",
-      "status": "upcoming"
-    }
-  ],
-  "past": [
+      "status": "past"
+    },
     {
       "uid": "evt-i6BhFdLiCz08KXx@events.lu.ma",
       "title": "Meetup Invierno JSCHILE + Frontend USACH",
