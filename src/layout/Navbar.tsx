@@ -11,8 +11,20 @@ import Link from 'next/link';
 import { AnimatedButton } from '@/components/AnimatedButton';
 import { useCommunityModal } from '@/providers/CommunityModalProvider';
 import { Stack } from '@mui/material';
-import { WhatsappLogo } from '@phosphor-icons/react';
+import IconButton from '@mui/material/IconButton';
+import { WhatsappLogo, InstagramLogo, YoutubeLogo, TiktokLogo, FacebookLogo, DiscordLogo, XLogo, LinkedinLogo, GithubLogo } from '@phosphor-icons/react';
 import { useState, useEffect } from 'react';
+
+const SOCIAL_NAV = [
+  { Icon: InstagramLogo, href: 'https://www.instagram.com/javascriptchile/',                          label: 'Instagram', mobile: true  },
+  { Icon: YoutubeLogo,   href: 'https://www.youtube.com/channel/UC7tUsO3S7424TMcgSCUOCow',           label: 'YouTube',   mobile: false },
+  { Icon: TiktokLogo,    href: 'https://www.tiktok.com/@javascriptchile',                             label: 'TikTok',    mobile: false },
+  { Icon: FacebookLogo,  href: 'https://www.facebook.com/profile.php?id=61552995506598',              label: 'Facebook',  mobile: true  },
+  { Icon: DiscordLogo,   href: 'https://discord.com/invite/8KHqX8x7S6',                              label: 'Discord',   mobile: false },
+  { Icon: XLogo,         href: 'https://x.com/javascriptchile',                                       label: 'X',         mobile: false },
+  { Icon: LinkedinLogo,  href: 'https://www.linkedin.com/company/javascriptchile/posts/?feedView=all', label: 'LinkedIn', mobile: true  },
+  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',                             label: 'GitHub',    mobile: false },
+];
 
 const Navbar = () => {
   const { openModal } = useCommunityModal();
@@ -117,7 +129,45 @@ const Navbar = () => {
             </Box>
 
             {/* Action button */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+              {/* Social icons — desktop only, visible after hero */}
+              <Box
+                component='nav'
+                aria-label='Redes sociales'
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: { xs: 1, md: 0.25 },
+                  opacity: pastHero ? 1 : 0,
+                  pointerEvents: pastHero ? 'auto' : 'none',
+                  transform: pastHero ? 'translateY(0)' : 'translateY(-6px)',
+                  transition: 'opacity 0.3s ease, transform 0.3s ease',
+                }}
+              >
+                {SOCIAL_NAV.map(({ Icon, href, label, mobile }) => (
+                  <IconButton
+                    key={label}
+                    component='a'
+                    href={href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`${label} (abre en nueva pestaña)`}
+                    size='small'
+                    sx={{
+                      display: { xs: mobile ? 'flex' : 'none', md: 'flex' },
+                      color: '#fff',
+                      bgcolor: 'rgba(0,0,0,0.35)',
+                      borderRadius: '8px',
+                      p: 0.6,
+                      transition: 'background 0.18s, color 0.18s',
+                      '&:hover': { bgcolor: 'rgba(0,0,0,0.55)', color: COLORS.yellow },
+                    }}
+                  >
+                    <Icon size={17} weight='fill' aria-hidden />
+                  </IconButton>
+                ))}
+              </Box>
+
               <AnimatedButton
                 onClick={openModal}
                 variant='contained'
