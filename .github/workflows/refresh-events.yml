@@ -4,6 +4,9 @@ on:
   schedule:
     # Once a day at noon UTC (9 AM Chile time)
     - cron: '0 12 * * *'
+  push:
+    branches:
+      - main
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
