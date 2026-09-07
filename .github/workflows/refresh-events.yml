@@ -2,8 +2,8 @@ name: Refresh Luma Events
 
 on:
   schedule:
-    # Once a day at noon UTC (9 AM Chile time)
-    - cron: '0 12 * * *'
+    # Every 2 hours — picks up new Luma events within 2 hours of creation
+    - cron: '0 */2 * * *'
   push:
     branches:
       - main
@@ -40,8 +40,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/events.json scripts/og-cache.json public/speakers.json
           if git diff --staged --quiet; then
-            echo "No changes — skipping commit."
+            echo "No changes — skipping commit and deploy."
           else
-            git commit -m "chore: refresh events and speakers"
+            git commit -m "chore: refresh Luma events and speakers"
             git push
           fi
