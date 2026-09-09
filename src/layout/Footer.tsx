@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { GithubLogo, InstagramLogo, WhatsappLogo, LinkedinLogo, XLogo } from '@phosphor-icons/react';
+import { GithubLogo, InstagramLogo, WhatsappLogo, LinkedinLogo, XLogo, YoutubeLogo, FacebookLogo, DiscordLogo, TiktokLogo } from '@phosphor-icons/react';
 import Link from 'next/link';
 
 
@@ -25,11 +25,15 @@ const ACCIONES_LINKS = [
 ];
 
 const SOCIAL = [
-  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',    label: 'GitHub' },
-  { Icon: InstagramLogo, href: 'https://www.instagram.com/javascriptchile/', label: 'Instagram' },
-  { Icon: WhatsappLogo,  href: null,                                          label: 'WhatsApp' },
-  { Icon: LinkedinLogo,  href: 'https://www.linkedin.com/company/javascriptchile/posts/?feedView=all', label: 'LinkedIn' },
+  { Icon: InstagramLogo, href: 'https://www.instagram.com/javascriptchile/',                          label: 'Instagram' },
+  { Icon: YoutubeLogo,   href: 'https://www.youtube.com/channel/UC7tUsO3S7424TMcgSCUOCow',           label: 'YouTube' },
+  { Icon: TiktokLogo,    href: 'https://www.tiktok.com/@javascriptchile',                             label: 'TikTok' },
+  { Icon: FacebookLogo,  href: 'https://www.facebook.com/profile.php?id=61552995506598',              label: 'Facebook' },
+  { Icon: DiscordLogo,   href: 'https://discord.com/invite/8KHqX8x7S6',                              label: 'Discord' },
+  { Icon: WhatsappLogo,  href: null,                                                                   label: 'WhatsApp' },
   { Icon: XLogo,         href: 'https://x.com/javascriptchile',                                       label: 'X' },
+  { Icon: LinkedinLogo,  href: 'https://www.linkedin.com/company/javascriptchile/posts/?feedView=all', label: 'LinkedIn' },
+  { Icon: GithubLogo,    href: 'https://github.com/JSConfCL/org-landing',                             label: 'GitHub' },
 ];
 
 const linkSx = {
@@ -78,11 +82,11 @@ const Footer = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
-        pt: { xs: '75%', sm: '35%' },
+        pt: { xs: 0, sm: '35%' },
       }}
     >
       {/* ── Contenido principal ── */}
-      <Container maxWidth={false} sx={{ px: { xs: 4, md: 8, lg: 10 }, pt: { xs: 6, md: 8 }, pb: { xs: 4, md: 6 } }}>
+      <Container maxWidth={false} sx={{ px: { xs: 4, md: 8, lg: 10 }, pt: { xs: '620px', md: 8 }, pb: { xs: 4, md: 6 } }}>
         <Grid container spacing={4} alignItems='flex-start'>
 
           {/* Logo */}
@@ -146,7 +150,7 @@ const Footer = () => {
           <Grid size={{ xs: 6, md: 2 }}>
             {colTitle('Síguenos')}
             {/* WCAG AA: aria-label descriptivo incluye "(abre en nueva pestaña)" */}
-            <Box component='nav' aria-label='Redes sociales' sx={{ display: 'flex', gap: 0.5 }}>
+            <Box component='nav' aria-label='Redes sociales' sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {SOCIAL.map(({ Icon, href, label }) => (
                 <IconButton
                   key={label}
@@ -176,7 +180,8 @@ const Footer = () => {
       <Box
         sx={{
           borderTop: '1px solid rgba(0,0,0,0.15)',
-          px: { xs: 4, md: 8, lg: 10 },
+          pl: { xs: 4, md: 8, lg: 10 },
+          pr: { xs: '80px', md: 8, lg: 10 },
           py: { xs: 2, md: 2.5 },
           display: 'flex',
           alignItems: 'center',

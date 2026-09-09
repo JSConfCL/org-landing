@@ -38,8 +38,8 @@ async function saveCache(cache) {
 // og:image scraping
 // ──────────────────────────────────────────────
 
-async function fetchOgImage(url, cache) {
-  if (url in cache) return cache[url];
+async function fetchOgImage(url, cache, skipCache = false) {
+  if (!skipCache && url in cache) return cache[url];
 
   try {
     const res = await fetch(url, {
@@ -159,7 +159,14 @@ async function main() {
     let cover_url = null;
     if (url) {
       process.stdout.write(`  → ${summary.slice(0, 50)}`);
-      cover_url = await fetchOgImage(url, cache);
+      // Skip cache for upcoming/ongoing AND for events that ended within the last 7 days,
+      // so a freshly-past event always shows the current Luma image.
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+      const skipCache =
+        status === 'upcoming' ||
+        status === 'ongoing' ||
+        (status === 'past' && now - end < sevenDaysMs);
+      cover_url = await fetchOgImage(url, cache, skipCache);
       console.log(cover_url ? ' ✓' : ' (no cover)');
     }
 
